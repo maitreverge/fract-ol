@@ -6,7 +6,7 @@
 #    By: flverge <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 09:04:59 by flverge           #+#    #+#              #
-#    Updated: 2023/11/20 11:27:41 by flverge          ###   ########.fr        #
+#    Updated: 2023/11/20 11:42:15 by flverge          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,27 +50,39 @@ all: $(MLX) $(LIBFT) $(NAME)
 
 # remettre flags
 $(OBJ): $(SRC)
-	$(CC) -c $< -o $@ 
+	@$(CC) -c $< -o $@ 
 
 $(LIBFT):
 	@make -sC $(LIBFT_PATH)
+	@echo "\n"
+	@echo "$(BOLD)$(BLUE)-----------------------$(RESET)"
+	@echo "\n"	
 
 $(MLX):
 	@echo "$(BOLD)$(RED)🛠️      Compiling MiniLibX      🛠️$(RESET)"
+	@echo "\n"	
 	@make all -sC $(MLX_PATH)
-	@echo "$(BOLD)$(GREEN)😎      MiniLibX Compiled       😎$(RESET)"
-	
+	@echo "\n"	
+	@echo "$(BOLD)$(GREEN)😎     MiniLibX Compiled    😎$(RESET)"
+	@echo "\n"
+	@echo "$(BOLD)$(BLUE)-----------------------$(RESET)"
+	@echo "\n"	
 
 # remettre flags
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm -lz -o $(NAME)
+	@echo "$(BOLD)$(RED)🛠️      Compiling Fractol    🛠️$(RESET)"
+	@$(CC) $(OBJ) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm -lz -o $(NAME)
+	@echo "$(BOLD)$(GREEN)✅✅      Fractol fully compiled, ready to use       ✅✅$(RESET)"
+	@echo "\n"
+	@echo "$(BOLD)$(BLUE)-----------------------$(RESET)"
+	@echo "\n"	
 
 clean:
 	@make clean -sC $(LIBFT_PATH)
 	@rm -f $(OBJ)
-	@echo "$(BOLD)$(ORANGE)🌀     Cleaned .o fractol's files     🌀$(RESET)"
+	@echo "$(BOLD)$(ORANGE)🌀     Cleaned .o fractol's files   🌀$(RESET)"
 	@make clean -sC $(MLX_PATH)
-	@echo "$(BOLD)$(ORANGE)🌀     Cleaned .o MiniLibX's files     🌀$(RESET)"
+	@echo "$(BOLD)$(ORANGE)🌀     Cleaned .o MiniLibX's files  🌀$(RESET)"
 
 
 fclean: clean
