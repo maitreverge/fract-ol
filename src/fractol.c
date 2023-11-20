@@ -6,25 +6,45 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/20 11:58:11 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:51:48 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+
+// calculates the offset and assign a color to a specific pixel
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->adrr + (y * data->line_lenght + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
+
+
 int	main(void)
 {
-	void	*init_mlx;
+	void	*mlx;
 	void	*windows;
 
-	init_mlx = mlx_init();
+	t_data img;
 
-	windows = mlx_new_window(init_mlx, 1920, 1080, "Hello, world !");
-	mlx_loop(init_mlx);
+	// init image
+	mlx = mlx_init();
 
-	ft_printf("Hello");
+	// creates a new windows
+	windows = mlx_new_window(mlx, 1920, 1080, "Hello, world !");
 	
+	// creates an image pushed into the window
+	img.img = mlx_new_image(mlx, 1920, 1080);
+
+	img.adrr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
+
+	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
 	
+	// keeps the windows alive
+	mlx_loop(mlx);
 }
 
 /*

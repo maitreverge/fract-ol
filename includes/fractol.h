@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/20 12:02:28 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:34:35 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@
 # include <math.h>  // Authorized functions
 
 
+// struct test
+typedef struct s_data
+{
+	void	*img;
+	char	*adrr;
+	int		bits_per_pixel;
+	int		line_lenght;
+	int		endian;
+}			t_data;
 
 
 

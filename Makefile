@@ -6,7 +6,7 @@
 #    By: flverge <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 09:04:59 by flverge           #+#    #+#              #
-#    Updated: 2023/11/20 11:42:15 by flverge          ###   ########.fr        #
+#    Updated: 2023/11/20 14:21:53 by flverge          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,11 +71,10 @@ $(MLX):
 # remettre flags
 $(NAME): $(OBJ)
 	@echo "$(BOLD)$(RED)🛠️      Compiling Fractol    🛠️$(RESET)"
+	@echo "\n"
 	@$(CC) $(OBJ) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm -lz -o $(NAME)
 	@echo "$(BOLD)$(GREEN)✅✅      Fractol fully compiled, ready to use       ✅✅$(RESET)"
 	@echo "\n"
-	@echo "$(BOLD)$(BLUE)-----------------------$(RESET)"
-	@echo "\n"	
 
 clean:
 	@make clean -sC $(LIBFT_PATH)
