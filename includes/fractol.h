@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/20 14:34:35 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/20 15:54:04 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,13 @@
 
 
 // struct test
-typedef struct s_data
-{
-	void	*img;
-	char	*adrr;
-	int		bits_per_pixel;
-	int		line_lenght;
-	int		endian;
-}			t_data;
-
-
-
+// typedef struct s_data
+// {
+// 	void	*img;
+// 	char	*adrr;
+// 	int		bits_per_pixel;
+// 	int		line_lenght;
+// 	int		endian;
+// }			t_data;
 
 #endif 
