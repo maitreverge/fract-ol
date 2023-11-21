@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:19:13 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/21 12:03:58 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/21 16:33:35 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,7 @@ int	get_color(char *str)
 	{
 		colors[i] = atoi_color(str, i);
 		if (colors[i] < 0 || colors[i] > 255)
-		{
-			ft_printf("Color block [%i] is not in the range [0-255]", i + 1);
 			return -1;
-		}
 		i++;
 	}
 	result = fusion_4ints(colors);

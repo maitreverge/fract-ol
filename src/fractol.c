@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/21 15:40:29 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/21 16:58:08 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	print_form(t_data *data, void *mlx, void *window, char *arg)
+void	print_form(t_data *data, void *mlx, void *window, int color)
 {
 	int x = 0;
 	int y = 0;
 
-	while (x < 200)
+	while (x < 200 && x < WIN_WIDTH)
 	{
-		my_mlx_pixel_put(data, x, y, get_color(arg));
+		my_mlx_pixel_put(data, x, y, color);
 		x++;
 	}
-	while ( y < 200)
+	while ( y < 200 && WIN_HEIGHT)
 	{
-		my_mlx_pixel_put(data, x, y, get_color(arg));
+		my_mlx_pixel_put(data, x, y, color);
 		y++;
 	}
 	mlx_put_image_to_window(mlx, window, data->img, 200, 100);
@@ -47,9 +47,12 @@ int	main(int ac, char **av)
 
 		t_data img;
 
-		// test_print();
-		
-		// init image
+		var.color = get_color(av[1]);
+		if (var.color < 0)
+		{
+			ft_printf("Selected color are not in the range [0-255]\n");
+			exit(-1);
+		}
 		var.mlx = mlx_init();
 
 		// creates a new windows
@@ -60,9 +63,11 @@ int	main(int ac, char **av)
 
 		img.adrr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
 
-		print_form(&img, var.mlx, var.win, av[1]);
+		print_form(&img, var.mlx, var.win, var.color);
 
-		mlx_hook(var.win, 2, 1L<<0, win_close, &var);
+		// ! DO TO ==> Makes the echap key close the windows AND quit the program
+
+		mlx_hook(var.win, ON_KEYDOWN, 1L<<0, win_close, &var);
 		
 		// keeps the windows alive
 		mlx_loop(var.mlx);

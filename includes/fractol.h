@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/21 15:39:59 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/21 16:37:56 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,11 @@ typedef struct s_var
 {
 	void	*mlx;
 	void	*win;
+	int		color;
 }		t_var;
 
 // fractol.c
-void	print_form(t_data *data, void *mlx, void *window, char *arg);
+void	print_form(t_data *data, void *mlx, void *window, int color);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 // color.c
@@ -65,7 +66,7 @@ int		fusion_4ints(int *c);
 int		get_color(char *str);
 
 // hooks.c
-int win_close(int keycode, t_var *var);
+int		win_close(int keycode, t_var *var);
 
 
 
