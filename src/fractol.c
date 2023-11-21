@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/21 12:08:50 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/21 15:40:29 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,28 +43,29 @@ int	main(int ac, char **av)
 {
 	if (ac > 1)
 	{
-		void	*mlx;
-		void	*window;
+		t_var var;
 
 		t_data img;
 
 		// test_print();
 		
 		// init image
-		mlx = mlx_init();
+		var.mlx = mlx_init();
 
 		// creates a new windows
-		window = mlx_new_window(mlx, 1920, 1080, "Hello, world !");
+		var.win = mlx_new_window(var.mlx, WIN_WIDTH, WIN_HEIGHT, "fractol");
 		
 		// creates an image pushed into the window
-		img.img = mlx_new_image(mlx, 1920, 1080);
+		img.img = mlx_new_image(var.mlx, WIN_WIDTH, WIN_HEIGHT);
 
 		img.adrr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
 
-		print_form(&img, mlx, window, av[1]);
+		print_form(&img, var.mlx, var.win, av[1]);
+
+		mlx_hook(var.win, 2, 1L<<0, win_close, &var);
 		
 		// keeps the windows alive
-		mlx_loop(mlx);
+		mlx_loop(var.mlx);
 	}
 	else
 		ft_printf("mdr nop");
