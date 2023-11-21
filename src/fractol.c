@@ -6,21 +6,11 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/20 16:31:22 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/21 10:20:25 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-
-typedef struct s_data
-{
-	void	*img;
-	char	*adrr;
-	int		bits_per_pixel;
-	int		line_lenght;
-	int		endian;
-}			t_data;
 
 // calculates the offset and assign a color to a specific pixel
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
@@ -38,18 +28,12 @@ void	print_form(t_data *data, void *mlx, void *window)
 
 	while (x < 200)
 	{
-		my_mlx_pixel_put(&data->img, x, y, 0x000FFF00);
-		// usleep(5000);
-		
+		my_mlx_pixel_put(data, x, y, 0x000FFF00);
 		x++;
 	}
-	// mlx_put_image_to_window(mlx, window, data->img, 200, 100);
-
 	while ( y < 200)
 	{
-		my_mlx_pixel_put(&data->img, x, y, 0x000FFF00);
-		// usleep(5000);
-		
+		my_mlx_pixel_put(data, x, y, 0x000FFF00);
 		y++;
 	}
 	mlx_put_image_to_window(mlx, window, data->img, 200, 100);
@@ -61,6 +45,8 @@ int	main(void)
 	void	*window;
 
 	t_data img;
+
+	test_print();
 	
 	// init image
 	mlx = mlx_init();
@@ -74,10 +60,6 @@ int	main(void)
 	img.adrr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
 
 	print_form(&img, mlx, window);
-
-	// my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-
-	// mlx_put_image_to_window(mlx, window, img.img, 0, 0);
 	
 	// keeps the windows alive
 	mlx_loop(mlx);

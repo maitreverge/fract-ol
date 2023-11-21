@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/20 15:54:04 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/21 10:21:18 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,19 @@
 # include <math.h>  // Authorized functions
 
 
-// struct test
-// typedef struct s_data
-// {
-// 	void	*img;
-// 	char	*adrr;
-// 	int		bits_per_pixel;
-// 	int		line_lenght;
-// 	int		endian;
-// }			t_data;
+//struct test
+typedef struct s_data
+{
+	void	*img;
+	char	*adrr;
+	int		bits_per_pixel;
+	int		line_lenght;
+	int		endian;
+}			t_data;
+
+void	test_print(void);
+void	print_form(t_data *data, void *mlx, void *window);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+
 
 #endif 
