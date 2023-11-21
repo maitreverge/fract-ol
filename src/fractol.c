@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/21 10:20:25 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/21 12:08:50 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,48 +21,53 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	print_form(t_data *data, void *mlx, void *window)
+void	print_form(t_data *data, void *mlx, void *window, char *arg)
 {
 	int x = 0;
 	int y = 0;
 
 	while (x < 200)
 	{
-		my_mlx_pixel_put(data, x, y, 0x000FFF00);
+		my_mlx_pixel_put(data, x, y, get_color(arg));
 		x++;
 	}
 	while ( y < 200)
 	{
-		my_mlx_pixel_put(data, x, y, 0x000FFF00);
+		my_mlx_pixel_put(data, x, y, get_color(arg));
 		y++;
 	}
 	mlx_put_image_to_window(mlx, window, data->img, 200, 100);
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	void	*mlx;
-	void	*window;
+	if (ac > 1)
+	{
+		void	*mlx;
+		void	*window;
 
-	t_data img;
+		t_data img;
 
-	test_print();
-	
-	// init image
-	mlx = mlx_init();
+		// test_print();
+		
+		// init image
+		mlx = mlx_init();
 
-	// creates a new windows
-	window = mlx_new_window(mlx, 1920, 1080, "Hello, world !");
-	
-	// creates an image pushed into the window
-	img.img = mlx_new_image(mlx, 1920, 1080);
+		// creates a new windows
+		window = mlx_new_window(mlx, 1920, 1080, "Hello, world !");
+		
+		// creates an image pushed into the window
+		img.img = mlx_new_image(mlx, 1920, 1080);
 
-	img.adrr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
+		img.adrr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
 
-	print_form(&img, mlx, window);
-	
-	// keeps the windows alive
-	mlx_loop(mlx);
+		print_form(&img, mlx, window, av[1]);
+		
+		// keeps the windows alive
+		mlx_loop(mlx);
+	}
+	else
+		ft_printf("mdr nop");
 }
 
 /*

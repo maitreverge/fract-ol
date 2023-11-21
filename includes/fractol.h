@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/21 10:21:18 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/21 12:09:05 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,14 @@ typedef struct s_data
 	int		endian;
 }			t_data;
 
-void	test_print(void);
-void	print_form(t_data *data, void *mlx, void *window);
+// fractol.c
+void	print_form(t_data *data, void *mlx, void *window, char *arg);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+
+// color.c
+int		atoi_color(char *str, int comas);
+int		fusion_4ints(int *c);
+int		get_color(char *str);
 
 
 #endif 
