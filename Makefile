@@ -6,7 +6,7 @@
 #    By: flverge <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 09:04:59 by flverge           #+#    #+#              #
-#    Updated: 2023/11/20 14:21:53 by flverge          ###   ########.fr        #
+#    Updated: 2023/11/21 10:40:28 by flverge          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ MLX = $(MLX_PATH)$(MLX_NAME)
 # Fractols files
 SRC_DIR := src
 SRC := $(wildcard $(SRC_DIR)/*.c)
-OBJ = ${SRC:.c=.o}
+OBJ := ${SRC:.c=.o}
 
 # Includes
 INC =	-I ./includes/\
@@ -49,8 +49,8 @@ BLUE = \033[94m
 all: $(MLX) $(LIBFT) $(NAME)
 
 # remettre flags
-$(OBJ): $(SRC)
-	@$(CC) -c $< -o $@ 
+%.o: %.c
+	$(CC) -c $< -o $@
 
 $(LIBFT):
 	@make -sC $(LIBFT_PATH)
@@ -72,7 +72,7 @@ $(MLX):
 $(NAME): $(OBJ)
 	@echo "$(BOLD)$(RED)🛠️      Compiling Fractol    🛠️$(RESET)"
 	@echo "\n"
-	@$(CC) $(OBJ) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJ) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm -lz -o $(NAME)
 	@echo "$(BOLD)$(GREEN)✅✅      Fractol fully compiled, ready to use       ✅✅$(RESET)"
 	@echo "\n"
 
