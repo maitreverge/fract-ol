@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/23 17:16:05 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/23 17:41:41 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,15 @@ typedef enum e_keys
 	RIGHT_KEY = 65363
 }			t_keys;
 
+typedef enum e_mouse
+{
+	LEFT_CLICK = 1,
+	MIDDLE_CLICK,
+	RIGHT_CLICK,
+	SCROLL_UP,
+	SCROLL_DOWN
+}			t_mouse;
+
 typedef struct s_vars
 {
 	void	*mlx;
@@ -75,8 +84,8 @@ int		get_color(char *str);
 
 // hooks.c
 int		win_close(t_vars *var);
-int	key_listener(int keycode, t_vars *vars);
-
+int		key_listener(int keycode, t_vars *vars);
+int	mouse_listener(int mouseclick, t_vars *vars);
 
 
 
