@@ -6,71 +6,72 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/21 16:58:08 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/23 14:08:40 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
 // calculates the offset and assign a color to a specific pixel
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = data->adrr + (y * data->line_lenght + x * (data->bits_per_pixel / 8));
+	dst = vars->adrr + (y * vars->line_lenght + x * (vars->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
 
-void	print_form(t_data *data, void *mlx, void *window, int color)
+void	print_form(t_vars *vars, void *mlx, void *window, int color)
 {
 	int x = 0;
 	int y = 0;
 
 	while (x < 200 && x < WIN_WIDTH)
 	{
-		my_mlx_pixel_put(data, x, y, color);
+		my_mlx_pixel_put(vars, x, y, color);
 		x++;
 	}
 	while ( y < 200 && WIN_HEIGHT)
 	{
-		my_mlx_pixel_put(data, x, y, color);
+		my_mlx_pixel_put(vars, x, y, color);
 		y++;
 	}
-	mlx_put_image_to_window(mlx, window, data->img, 200, 100);
+	mlx_put_image_to_window(mlx, window, vars->img, 200, 100);
 }
 
 int	main(int ac, char **av)
 {
 	if (ac > 1)
 	{
-		t_var var;
+		t_vars vars;
 
-		t_data img;
-
-		var.color = get_color(av[1]);
-		if (var.color < 0)
+		vars.color = get_color(av[1]);
+		if (vars.color < 0)
 		{
 			ft_printf("Selected color are not in the range [0-255]\n");
 			exit(-1);
 		}
-		var.mlx = mlx_init();
+		vars.mlx = mlx_init();
 
 		// creates a new windows
-		var.win = mlx_new_window(var.mlx, WIN_WIDTH, WIN_HEIGHT, "fractol");
+		vars.win = mlx_new_window(vars.mlx, WIN_WIDTH, WIN_HEIGHT, "fractol");
 		
 		// creates an image pushed into the window
-		img.img = mlx_new_image(var.mlx, WIN_WIDTH, WIN_HEIGHT);
+		vars.img = mlx_new_image(vars.mlx, WIN_WIDTH, WIN_HEIGHT);
 
-		img.adrr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
+		vars.adrr = mlx_get_data_addr(vars.img, &vars.bits_per_pixel, &vars.line_lenght, &vars.endian);
 
-		print_form(&img, var.mlx, var.win, var.color);
+		print_form(&vars, vars.mlx, vars.win, vars.color);
 
 		// ! DO TO ==> Makes the echap key close the windows AND quit the program
 
-		mlx_hook(var.win, ON_KEYDOWN, 1L<<0, win_close, &var);
+		mlx_hook(vars.win, X_CROSS, 1L << 0, &win_close, &vars);
 		
 		// keeps the windows alive
-		mlx_loop(var.mlx);
+		mlx_loop(vars.mlx);
+
+		free(vars.mlx);
+		return (0);
 	}
 	else
 		ft_printf("mdr nop");
