@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/23 14:08:40 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/23 15:13:21 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,13 @@ int	main(int ac, char **av)
 			exit(-1);
 		}
 		vars.mlx = mlx_init();
+		if (!vars.mlx)
+			return (1);
 
 		// creates a new windows
 		vars.win = mlx_new_window(vars.mlx, WIN_WIDTH, WIN_HEIGHT, "fractol");
+		if (!vars.win)
+			return (1);
 		
 		// creates an image pushed into the window
 		vars.img = mlx_new_image(vars.mlx, WIN_WIDTH, WIN_HEIGHT);
@@ -69,7 +73,8 @@ int	main(int ac, char **av)
 		
 		// keeps the windows alive
 		mlx_loop(vars.mlx);
-
+		
+		mlx_destroy_display(vars.mlx);
 		free(vars.mlx);
 		return (0);
 	}

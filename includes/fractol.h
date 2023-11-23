@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/23 09:55:15 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/23 16:08:00 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <stdio.h> // perror
 # include <errno.h> // makes errno a global variable usable with strerror(errno)
 # include <math.h>  // Authorized functions
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 
 // enum of mlk hooks events
@@ -61,7 +63,7 @@ int		fusion_4ints(int *c);
 int		get_color(char *str);
 
 // hooks.c
-int		win_close(int keycode, t_vars *var);
+int		win_close(t_vars *var);
 
 
 
