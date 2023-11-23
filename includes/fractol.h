@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/23 16:08:00 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/23 17:16:05 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,17 @@ typedef enum e_event
 	X_CROSS = 17
 }			t_event;
 
+typedef enum e_keys
+{
+	ECHAP_KEY = 65307,
+	PLUS_KEY = 65451,
+	MINUS_KEY = 65453,
+	UP_KEY = 65362,
+	DOWN_KEY = 65364,
+	LEFT_KEY = 65361,
+	RIGHT_KEY = 65363
+}			t_keys;
+
 typedef struct s_vars
 {
 	void	*mlx;
@@ -64,6 +75,8 @@ int		get_color(char *str);
 
 // hooks.c
 int		win_close(t_vars *var);
+int	key_listener(int keycode, t_vars *vars);
+
 
 
 

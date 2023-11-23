@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/23 15:13:21 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/23 17:19:00 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,12 @@ int	main(int ac, char **av)
 
 		print_form(&vars, vars.mlx, vars.win, vars.color);
 
-		// ! DO TO ==> Makes the echap key close the windows AND quit the program
 
+		// Makes the cross clean close the program
 		mlx_hook(vars.win, X_CROSS, 1L << 0, &win_close, &vars);
 		
+		// Key listenner
+		mlx_hook(vars.win, ON_KEYDOWN, 1L << 0, &key_listener, &vars);
 		// keeps the windows alive
 		mlx_loop(vars.mlx);
 		
