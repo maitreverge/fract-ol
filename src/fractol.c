@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/23 17:37:06 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/23 17:45:17 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int	main(int ac, char **av)
 
 		// mouse listenner
 		mlx_mouse_hook(vars.win, mouse_listener, &vars);
+
+		// mlx_mouse_get_pos(vars.mlx, vars.win, 12, 12);
 		
 		// Key listenner
 		mlx_key_hook(vars.win, key_listener, &vars);

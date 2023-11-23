@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/23 17:41:41 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/23 17:54:53 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef enum e_keys
 	DOWN_KEY = 65364,
 	LEFT_KEY = 65361,
 	RIGHT_KEY = 65363
+	// add keys de numeros
 }			t_keys;
 
 typedef enum e_mouse
