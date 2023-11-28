@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/23 17:54:53 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/28 10:10:30 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <stdio.h> // perror
 # include <errno.h> // makes errno a global variable usable with strerror(errno)
 # include <math.h>  // Authorized functions
+# include <string.h> // strerror
 # include <X11/X.h>
 # include <X11/keysym.h>
 
@@ -72,6 +73,10 @@ typedef struct s_vars
 	int		bits_per_pixel;
 	int		line_lenght;
 	int		endian;
+	int		x; // position for tracking the mouse
+	int		y; // position for tracking the mouse
+	int		temp_x; // ? really useful
+	int		temp_y; // ? really useful
 }		t_vars;
 
 // fractol.c
@@ -86,7 +91,12 @@ int		get_color(char *str);
 // hooks.c
 int		win_close(t_vars *var);
 int		key_listener(int keycode, t_vars *vars);
-int	mouse_listener(int mouseclick, t_vars *vars);
+int		mouse_listener(int mouseclick, t_vars *vars);
+int		mouse_on_off(t_vars *vars);
+
+// security.c
+int		win_checker(void);
+
 
 
 

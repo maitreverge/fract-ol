@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/23 17:45:17 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/28 10:09:46 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ int	main(int ac, char **av)
 	{
 		t_vars vars;
 
+		if (win_checker)
+		{
+			ft_printf("Incorrect window size\n");
+			exit(1);
+		}
 		vars.color = get_color(av[1]);
 		if (vars.color < 0)
 		{
@@ -53,12 +58,12 @@ int	main(int ac, char **av)
 		}
 		vars.mlx = mlx_init();
 		if (!vars.mlx)
-			return (1);
+			perror("Error");
 
 		// creates a new windows
 		vars.win = mlx_new_window(vars.mlx, WIN_WIDTH, WIN_HEIGHT, "fractol");
 		if (!vars.win)
-			return (1);
+			perror("Error");
 		
 		// creates an image pushed into the window
 		vars.img = mlx_new_image(vars.mlx, WIN_WIDTH, WIN_HEIGHT);
@@ -69,23 +74,15 @@ int	main(int ac, char **av)
 
 		// Makes the cross clean close the program
 		mlx_hook(vars.win, X_CROSS, 1L << 0, &win_close, &vars);
-
-
 		// mouse listenner
 		mlx_mouse_hook(vars.win, mouse_listener, &vars);
-
-		// mlx_mouse_get_pos(vars.mlx, vars.win, 12, 12);
-		
+		// mouse trackers
+		mlx_mouse_get_pos(vars.mlx, vars.win, &vars.x, &vars.y);
 		// Key listenner
 		mlx_key_hook(vars.win, key_listener, &vars);
-		
-		// Key listenner
-		// mlx_hook(vars.win, ON_KEYDOWN, 1L << 0, &key_listener, &vars);
 		// keeps the windows alive
 		mlx_loop(vars.mlx);
-		
-		mlx_destroy_display(vars.mlx);
-		free(vars.mlx);
+		win_close(&vars);
 		return (0);
 	}
 	else
