@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/28 10:09:46 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/28 11:20:37 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,11 @@ void	print_form(t_vars *vars, void *mlx, void *window, int color)
 
 int	main(int ac, char **av)
 {
-	if (ac > 1)
+	if (!arg_checker(ac, av))
 	{
+		// temp check
+		printf("Args OK");
+		exit(0);
 		t_vars vars;
 
 		if (win_checker)
@@ -86,7 +89,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	else
-		ft_printf("mdr nop");
+		exit(1);
 }
 
 /*

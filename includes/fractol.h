@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/28 10:10:30 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/28 11:54:05 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,14 @@ int		mouse_on_off(t_vars *vars);
 
 // security.c
 int		win_checker(void);
+
+// args_checker.c
+void	display_options(int num_err);
+int		first_arg(char *av1);
+int		second_arg_j(char **av);
+int		third_arg(int ac, char **av);
+int		arg_checker(int ac, char **av);
+
 
 
 
