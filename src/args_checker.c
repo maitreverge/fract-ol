@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:37:12 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/28 12:09:44 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/28 12:23:09 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ void	display_options(int num_err)
 	ft_printf("\n-------\nExamples :\n./a.out J 2 Rainbow\n./a.out M\n./a.out X LSD\n./a.out J 1\n");
 }
 
-int	first_arg(char *av1)
+int	first_arg(char *av1) // working
 {
 	// ? m/M - j/J - x/X full uppercase or check double possibilities
-	if (ft_strncmp(av1, "J", 1) && ft_strncmp(av1, "M", 1) && ft_strncmp(av1, "X", 1))
+	if (ft_strncmp(av1, "J", 1) && ft_strncmp(av1, "M", 1) && ft_strncmp(av1, "X", 1) )
 		return 1;
 	return 0;
 }
@@ -48,6 +48,8 @@ int		second_arg_j(char **av)
 	if (av[1] == "J")
 	{
 		if (av[2] != "1" || av[2] != "2" || av[2] != "3")
+		// ! WORKING HERE
+		if (ft_strncmp(av[2], "1", 1))
 			return 1;
 	}
 	return (0);
@@ -77,7 +79,7 @@ int arg_checker(int ac, char **av)
 		display_options(0);
 		return (1);
 	}
-	if (first_arg)
+	if (first_arg(av[1]))
 	{
 		display_options(1);
 		return (1);
