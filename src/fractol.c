@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/28 11:20:37 by flverge          ###   ########.fr       */
+/*   Updated: 2023/11/28 14:13:17 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	main(int ac, char **av)
 	{
 		// temp check
 		printf("Args OK");
-		exit(0);
+		return (0);
+		
 		t_vars vars;
 
 		if (win_checker)
@@ -89,7 +90,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	else
-		exit(1);
+		return (1);
 }
 
 /*
