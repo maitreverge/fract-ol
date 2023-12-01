@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/28 13:34:56 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/01 11:44:54 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int		third_arg(int ac, char **av);
 int		arg_checker(int ac, char **av);
 
 // utils.c
-int	ft_strcmp(char *s1, char *s2);
+int		ft_strcmp(char *s1, char *s2);
 
 
 

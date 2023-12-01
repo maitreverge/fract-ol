@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/28 14:13:17 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/01 11:49:48 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@ int	main(int ac, char **av)
 {
 	if (!arg_checker(ac, av))
 	{
-		// temp check
-		printf("Args OK");
-		return (0);
-		
 		t_vars vars;
 
 		if (win_checker)
@@ -54,12 +50,13 @@ int	main(int ac, char **av)
 			ft_printf("Incorrect window size\n");
 			exit(1);
 		}
-		vars.color = get_color(av[1]);
-		if (vars.color < 0)
-		{
-			ft_printf("Selected color are not in the range [0-255]\n");
-			exit(-1);
-		}
+		// ! color selected block
+		// vars.color = get_color(av[1]);
+		// if (vars.color < 0)
+		// {
+		// 	ft_printf("Selected color are not in the range [0-255]\n");
+		// 	exit(-1);
+		// }
 		vars.mlx = mlx_init();
 		if (!vars.mlx)
 			perror("Error");
@@ -74,7 +71,12 @@ int	main(int ac, char **av)
 
 		vars.adrr = mlx_get_data_addr(vars.img, &vars.bits_per_pixel, &vars.line_lenght, &vars.endian);
 
-		print_form(&vars, vars.mlx, vars.win, vars.color);
+		// ! function which print simples traits
+		// print_form(&vars, vars.mlx, vars.win, vars.color);
+		
+		// * global fractal redirection
+		if (!ft_strcmp(av[1]), "M")
+			print_mandelbrot(&vars, av);
 
 		// Makes the cross clean close the program
 		mlx_hook(vars.win, X_CROSS, 1L << 0, &win_close, &vars);
