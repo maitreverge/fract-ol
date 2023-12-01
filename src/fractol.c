@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/01 15:30:51 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/01 21:14:12 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,30 @@ void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	print_form(t_vars *vars, void *mlx, void *window, int color)
+void	print_fractal(t_vars *vars, char **av)
 {
-	int x = 0;
-	int y = 0;
+	if (!ft_strcmp(av[1], "M"))
+		print_mandelbrot(&vars, );
+}
 
-	while (x < 200 && x < WIN_WIDTH)
+void ft_init_mlx(t_vars *vars)
+{
+	if (!win_checker)
 	{
-		my_mlx_pixel_put(vars, x, y, color);
-		x++;
+		ft_printf("Incorrect window size\n");
+		exit(1);
 	}
-	while ( y < 200 && WIN_HEIGHT)
+	vars.mlx = mlx_init();
+	if (!vars.mlx)
+		return (MALLOC_ERROR);
+	vars.win = mlx_new_window(vars.mlx, WIN_WIDTH, WIN_HEIGHT, "Fractol");
+	if (!vars.win)
 	{
-		my_mlx_pixel_put(vars, x, y, color);
-		y++;
+		failed_window(&vars);
+		return (MALLOC_ERROR);
 	}
-	mlx_put_image_to_window(mlx, window, vars->img, 200, 100);
+	vars.img = mlx_new_image(vars.mlx, WIN_WIDTH, WIN_HEIGHT);
+	vars.adrr = mlx_get_data_addr(vars.img, &vars.bits_per_pixel, &vars.line_lenght, &vars.endian);
 }
 
 int	main(int ac, char **av)
@@ -45,54 +53,13 @@ int	main(int ac, char **av)
 	{
 		t_vars vars;
 
-		if (!win_checker)
-		{
-			ft_printf("Incorrect window size\n");
-			exit(1);
-		}
-		// ! color selected block
-		// vars.color = get_color(av[1]);
-		// if (vars.color < 0)
-		// {
-		// 	ft_printf("Selected color are not in the range [0-255]\n");
-		// 	exit(-1);
-		// }
-		vars.mlx = mlx_init();
-		if (!vars.mlx)
-			return (MALLOC_ERROR);
-
-		// creates a new windows
-		vars.win = mlx_new_window(vars.mlx, WIN_WIDTH, WIN_HEIGHT, "fractol");
-		if (!vars.win)
-		{
-			failed_window(&vars);
-			return (MALLOC_ERROR);
-		}
-		
-		// creates an image pushed into the window
-		vars.img = mlx_new_image(vars.mlx, WIN_WIDTH, WIN_HEIGHT);
-
-		vars.adrr = mlx_get_data_addr(vars.img, &vars.bits_per_pixel, &vars.line_lenght, &vars.endian);
-
-		// ! function which print simples traits
-		// print_form(&vars, vars.mlx, vars.win, vars.color);
-		
-		// * global fractal redirection
-		if (!ft_strcmp(av[1], "M"))
-			print_mandelbrot(&vars, av);
-
-		// Makes the cross clean close the program
-		mlx_hook(vars.win, X_CROSS, 1L << 0, &win_close, &vars);
-		// mouse listenner
-		mlx_mouse_hook(vars.win, mouse_listener, &vars);
-		// mouse trackers
-		mlx_mouse_get_pos(vars.mlx, vars.win, &vars.x, &vars.y);
-		// Key listenner
-		mlx_key_hook(vars.win, key_listener, &vars);
-		// keeps the windows alive
+		ft_init_mlx(&vars);
+		print_fractal(&vars, av);
+		mlx_hook(vars.win, X_CROSS, 1L << 0, &win_close, &vars); // close button
+		mlx_mouse_hook(vars.win, mouse_listener, &vars); // mouse listeners
+		mlx_mouse_get_pos(vars.mlx, vars.win, &vars.x, &vars.y); // mouse position
+		mlx_key_hook(vars.win, key_listener, &vars); // keyboard listeners
 		mlx_loop(vars.mlx);
-		win_close(&vars);
-		return (0);
 	}
 	else
 		return (1);
