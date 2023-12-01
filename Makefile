@@ -6,7 +6,7 @@
 #    By: flverge <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 09:04:59 by flverge           #+#    #+#              #
-#    Updated: 2023/11/23 09:52:16 by flverge          ###   ########.fr        #
+#    Updated: 2023/12/01 14:50:29 by flverge          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,7 @@ $(MLX):
 $(NAME): $(OBJ)
 	@echo "$(BOLD)$(RED)🛠️      Compiling Fractol    🛠️$(RESET)"
 	@echo "\n"
-	@$(CC) $(OBJ) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm -lz -o $(NAME)
+	@$(CC) $(OBJ) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm -lz -o $(NAME) -g
 	@echo "$(BOLD)$(GREEN)✅✅      Fractol fully compiled, ready to use       ✅✅$(RESET)"
 	@echo "\n"
 

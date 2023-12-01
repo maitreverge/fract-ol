@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/01 11:44:54 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/01 15:32:52 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 
+# define MALLOC_ERROR 1
+
 
 // enum of mlk hooks events
 typedef enum e_event
 {
-	WIN_HEIGHT = 2052,
-	WIN_WIDTH = 3648,
+	WIN_WIDTH = 1920,
+	WIN_HEIGHT = 1080,
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
@@ -89,13 +91,16 @@ int		fusion_4ints(int *c);
 int		get_color(char *str);
 
 // hooks.c
-int		win_close(t_vars *var);
 int		key_listener(int keycode, t_vars *vars);
 int		mouse_listener(int mouseclick, t_vars *vars);
 int		mouse_on_off(t_vars *vars);
 
 // security.c
 int		win_checker(void);
+int		win_close(t_vars *var);
+void	failed_window(t_vars *vars);
+
+
 
 // args_checker.c
 void	display_options(int num_err);
@@ -106,6 +111,10 @@ int		arg_checker(int ac, char **av);
 
 // utils.c
 int		ft_strcmp(char *s1, char *s2);
+
+// mandelbrot.c
+void	print_mandelbrot(t_vars *vars, char **av);
+
 
 
 

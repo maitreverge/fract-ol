@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/01 11:49:48 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/01 15:30:51 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int ac, char **av)
 	{
 		t_vars vars;
 
-		if (win_checker)
+		if (!win_checker)
 		{
 			ft_printf("Incorrect window size\n");
 			exit(1);
@@ -59,12 +59,15 @@ int	main(int ac, char **av)
 		// }
 		vars.mlx = mlx_init();
 		if (!vars.mlx)
-			perror("Error");
+			return (MALLOC_ERROR);
 
 		// creates a new windows
 		vars.win = mlx_new_window(vars.mlx, WIN_WIDTH, WIN_HEIGHT, "fractol");
 		if (!vars.win)
-			perror("Error");
+		{
+			failed_window(&vars);
+			return (MALLOC_ERROR);
+		}
 		
 		// creates an image pushed into the window
 		vars.img = mlx_new_image(vars.mlx, WIN_WIDTH, WIN_HEIGHT);
@@ -75,7 +78,7 @@ int	main(int ac, char **av)
 		// print_form(&vars, vars.mlx, vars.win, vars.color);
 		
 		// * global fractal redirection
-		if (!ft_strcmp(av[1]), "M")
+		if (!ft_strcmp(av[1], "M"))
 			print_mandelbrot(&vars, av);
 
 		// Makes the cross clean close the program
