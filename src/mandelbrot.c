@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 16:21:22 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 16:26:02 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void    handle_pixel(int x, int y, t_vars *vars)
     // how many times times I need to check if the point escaped
    while (???)
    {
-    z = sum_complex(sqrt_complex(z), c); // ! TO DO
+    z = sum_complex(sqrt_complex(z), c);
 
     // if the value escaped
     if (???)
@@ -85,7 +85,7 @@ void    handle_pixel(int x, int y, t_vars *vars)
    }
 }
 
-void	print_mandelbrot(t_vars *vars, char **av)
+void    print_mandelbrot(t_vars *vars, char **av)
 {
 	// av[2] = COLOR R / G / B / WOW / LSD
     // ft_printf("MANDELBROT PRINTING");

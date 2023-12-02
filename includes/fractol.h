@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 16:14:53 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 16:26:35 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,6 @@ int		ft_strcmp(char *s1, char *s2);
 
 // mandelbrot.c
 void	print_mandelbrot(t_vars *vars, char **av);
-double map(double i, double new_min, double new_max, double old_max);
-
+double	map(double i, double new_min, double new_max, double old_max);
 
 #endif 

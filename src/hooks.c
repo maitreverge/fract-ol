@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/01 15:28:43 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 16:27:30 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	key_listener(int keycode, t_vars *vars)
 {
 	if (keycode == ECHAP_KEY)
 		win_close(vars);
-	if (keycode == PLUS_KEY) // middle zoom in
+	if (keycode == PLUS_KEY)
 		ft_printf("Keycode : Plus Key\n");
-	if (keycode == MINUS_KEY) // middle zoom out
+	if (keycode == MINUS_KEY)
 		ft_printf("Keycode : Minus Key\n");
 	if (keycode == UP_KEY)
 		ft_printf("Keycode : Up Key\n");
@@ -32,18 +32,16 @@ int	key_listener(int keycode, t_vars *vars)
 
 int	mouse_listener(int mouseclick, t_vars *vars)
 {
-	// mouse clicks listenner
-	if (mouseclick == 1) // left
+	if (mouseclick == 1)
 		ft_printf("Mousecode : Left Click\n");
-	if (mouseclick == 2) // middle
+	if (mouseclick == 2)
 		ft_printf("Mousecode : Middle Click\n");
-	if (mouseclick == 3) // right
+	if (mouseclick == 3)
 		ft_printf("Mousecode : Right Click\n");
-	if (mouseclick == 4) // up scroll
+	if (mouseclick == 4)
 		ft_printf("Mousecode : Up Scroll\n");
-	if (mouseclick == 5) // down scroll
+	if (mouseclick == 5)
 		ft_printf("Mousecode : Down Scroll\n");
-	// ! mouse pos function makes the programs crash
 	return (0);
 }
 

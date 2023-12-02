@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:19:13 by flverge           #+#    #+#             */
-/*   Updated: 2023/11/21 16:33:35 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 16:28:28 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	atoi_color(char *str, int comas)
 {
-	int result;
-	int polarity;
-	int j;
+	int	result;
+	int	polarity;
+	int	j;
 
 	result = 0;
 	polarity = 1;
@@ -29,7 +29,7 @@ int	atoi_color(char *str, int comas)
 	}
 	if (*str == '-' || *str == '+')
 	{
-		if (*str = '-')
+		if (*str == '-')
 			polarity = -1;
 		str++;
 	}
@@ -38,7 +38,7 @@ int	atoi_color(char *str, int comas)
 		result = (result * 10) + (*str - 48);
 		str++;
 	}
-	return (result * polarity);	
+	return (result * polarity);
 }
 
 int	fusion_4ints(int *c)
@@ -48,10 +48,10 @@ int	fusion_4ints(int *c)
 
 int	get_color(char *str)
 {
-	int result;
-	int *colors;
-	int i;
-	
+	int	result;
+	int	*colors;
+	int	i;
+
 	i = 0;
 	colors = malloc(sizeof(int) * 4);
 	if (!colors)
@@ -60,7 +60,7 @@ int	get_color(char *str)
 	{
 		colors[i] = atoi_color(str, i);
 		if (colors[i] < 0 || colors[i] > 255)
-			return -1;
+			return (-1);
 		i++;
 	}
 	result = fusion_4ints(colors);
