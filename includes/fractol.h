@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 15:22:59 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 16:14:53 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,6 @@ typedef enum e_mouse
 	SCROLL_UP,
 	SCROLL_DOWN
 }			t_mouse;
-
- 
 
 typedef struct s_vars
 {

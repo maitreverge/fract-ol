@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 15:37:09 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 16:21:22 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,32 @@ of the Mandelbrot set wioll be visible (as the majority of the points leaves wit
 double map(double i, double new_min, double new_max, double old_max)
 {
     return ((new_max - new_min) * (i / old_max) + new_min); 
+}
+
+// sumcomplex, because c use current Z from the first itteration
+
+t_complex sum_complex(t_complex z1, t_complex z2)
+{
+    t_complex res;
+    
+    res.x = z1.x + z2.x;
+    res.y = z1.y + z2.y;
+
+    return (res);
+}
+
+// (x_real + y_imaginary)^2
+// ==> x^2 + 2xyi - y^2
+t_complex   sqrt_complex(t_complex z)
+{
+    // help :(
+    t_complex res;
+
+    res.x = pow(z.x, 2) - pow(z.y, 2);
+    res.y = (2 * z.x * z.y); 
+
+    return (res);
+    
 }
 
 void    handle_pixel(int x, int y, t_vars *vars)
