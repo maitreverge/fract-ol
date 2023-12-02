@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 12:43:47 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 13:04:12 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ typedef struct s_vars
 // fractol.c
 void	print_form(t_vars *vars, void *mlx, void *window, int color);
 void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color);
+void	ft_init_mlx(t_vars *vars);
+
 
 // color.c
 int		atoi_color(char *str, int comas);
@@ -103,8 +105,7 @@ int		win_checker(void);
 int		win_close(t_vars *var);
 void	failed_window(t_vars *vars);
 void	failed_image(t_vars *vars);
-
-
+void	malloc_error(void);
 
 
 // args_checker.c
@@ -119,14 +120,5 @@ int		ft_strcmp(char *s1, char *s2);
 
 // mandelbrot.c
 void	print_mandelbrot(t_vars *vars, char **av);
-
-
-
-
-
-
-
-
-
 
 #endif 

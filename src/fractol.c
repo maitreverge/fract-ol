@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 12:51:38 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 14:45:27 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,37 +21,30 @@ void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	print_fractal(t_vars *vars, char **av)
+static void	print_fractal(t_vars *vars, char **av)
 {
-	if (!ft_strcmp(av[1], "M"))
-		print_mandelbrot(&vars, av);
+	if (vars->fractal_name == 'M')
+		print_mandelbrot(vars, av);
 	// else if (!ft_strcmp(av[1], "J"))
 	// else if (!ft_strcmp(av[1], "X"))
 }
 
-static int ft_init_mlx(t_vars *vars)
+void ft_init_mlx(t_vars *vars)
 {
 	if (!win_checker)
 	{
 		ft_printf("Incorrect window size\n");
-		return(1);
+		exit(1);
 	}
 	vars->mlx = mlx_init();
 	if (!vars->mlx)
-		malloc_error();
-		
+		malloc_error();		
 	vars->win = mlx_new_window(vars->mlx, WIN_WIDTH, WIN_HEIGHT, "Fractol");
 	if (!vars->win)
-	{
-		failed_window(&vars);
-		malloc_error();
-	}
+		failed_window(vars);
 	vars->img = mlx_new_image(vars->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (!vars->img)
-	{
-		failed_image(&vars);
-		malloc_error();
-	}
+		failed_image(vars);
 	vars->adrr = mlx_get_data_addr(vars->img, &vars->bits_per_pixel, &vars->line_lenght, &vars->endian);
 }
 
@@ -61,9 +54,9 @@ int	main(int ac, char **av)
 	if (!arg_checker(ac, av))
 	{
 		t_vars vars;
-		vars.fractal_name = av[1];
+		vars.fractal_name = av[1][0];
 
-		ft_init_mlx(&vars)
+		ft_init_mlx(&vars);
 		print_fractal(&vars, av);
 		mlx_hook(vars.win, X_CROSS, 1L << 0, &win_close, &vars); // close button
 		mlx_mouse_hook(vars.win, mouse_listener, &vars); // mouse listeners
