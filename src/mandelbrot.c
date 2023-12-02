@@ -6,16 +6,75 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 12:53:05 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 15:37:09 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
+/*
+handeling pixels allows us to efficiently handle a "little" set of Mandelbrot, because
+it is located within a range of -2 / +2 on both reals numbers and imaginary numbers
+*/
+
+/*
+We aslo need to rescale the window according to the window size, otherwise, only a fraction
+of the Mandelbrot set wioll be visible (as the majority of the points leaves within the negative part)
+
+
+
+*/
+
+// ! Linear interpolation
+double map(double i, double new_min, double new_max, double old_max)
+{
+    return ((new_max - new_min) * (i / old_max) + new_min); 
+}
+
+void    handle_pixel(int x, int y, t_vars *vars)
+{
+    t_complex z;
+    t_complex c;
+
+    double temp_real;
+
+    // first iteration
+    z.x = 0;
+    z.y = 0;
+
+    // those are the actual pixel coordinates modified to fit Mandelbrot set
+    c.x = map(x, -2, +2, WIN_WIDTH);
+    c.y = map(y, -2, +2, WIN_HEIGHT);
+
+    // how many times times I need to check if the point escaped
+   while (???)
+   {
+    z = sum_complex(sqrt_complex(z), c); // ! TO DO
+
+    // if the value escaped
+    if (???)
+    {
+        my_pixel_put()
+    }
+   }
+}
+
 void	print_mandelbrot(t_vars *vars, char **av)
 {
 	// av[2] = COLOR R / G / B / WOW / LSD
-    ft_printf("MANDELBROT PRINTING");
+    // ft_printf("MANDELBROT PRINTING");
+    int y;
+    int x;
+    
+    y = -1;
+    while (++y < WIN_HEIGHT)
+    {
+        x = -1;
+        while (++x < WIN_WIDTH)
+        {
+            handle_pixels(x, y, vars);
+        }
+    }
 	
 }
 

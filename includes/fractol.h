@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 13:04:12 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 15:22:59 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 // enum of mlk hooks events
 typedef enum e_event
 {
-	WIN_WIDTH = 1920,
-	WIN_HEIGHT = 1080,
+	WIN_WIDTH = 1500,
+	WIN_HEIGHT = 1500,
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
@@ -84,6 +84,15 @@ typedef struct s_vars
 	int		temp_y; // ? really useful
 }		t_vars;
 
+typedef struct s_complex
+{
+	// real number
+    double	x;
+	// imaginary number
+    double	y;
+}			t_complex;
+
+
 // fractol.c
 void	print_form(t_vars *vars, void *mlx, void *window, int color);
 void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color);
@@ -120,5 +129,7 @@ int		ft_strcmp(char *s1, char *s2);
 
 // mandelbrot.c
 void	print_mandelbrot(t_vars *vars, char **av);
+double map(double i, double new_min, double new_max, double old_max);
+
 
 #endif 
