@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 10:06:26 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/01 15:32:16 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 12:47:21 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,17 @@ void	failed_window(t_vars *vars)
 {
 	mlx_destroy_display(vars->mlx);
 	free(vars->mlx);
+}
+
+void	failed_image(t_vars *vars)
+{
+	mlx_destroy_display(vars->mlx);
+	mlx_destroy_window(vars->mlx, vars->win);
+	free(vars->mlx);
+}
+
+void malloc_error(void)
+{
+	perror("Error From malloc");
+	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/01 15:32:52 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/02 12:43:47 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,19 @@ typedef enum e_mouse
 	SCROLL_DOWN
 }			t_mouse;
 
+ 
+
 typedef struct s_vars
 {
+	char	fractal_name;
 	void	*mlx;
 	void	*win;
-	int		color;
-	void	*img;
-	char	*adrr;
-	int		bits_per_pixel;
-	int		line_lenght;
-	int		endian;
+	int		color; // ! to do : split into another struct
+	void	*img; // split into another struct
+	char	*adrr; // split into another struct
+	int		bits_per_pixel; // split into another struct
+	int		line_lenght; // split into another struct
+	int		endian; // split into another struct
 	int		x; // position for tracking the mouse
 	int		y; // position for tracking the mouse
 	int		temp_x; // ? really useful
@@ -99,6 +102,8 @@ int		mouse_on_off(t_vars *vars);
 int		win_checker(void);
 int		win_close(t_vars *var);
 void	failed_window(t_vars *vars);
+void	failed_image(t_vars *vars);
+
 
 
 
