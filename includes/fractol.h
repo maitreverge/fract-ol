@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 08:38:50 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 10:29:27 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,14 @@ typedef enum e_basic_colors
     MAGENTA = 0xFF00FF,
     CYAN = 0x00FFFF,
     WHITE = 0xFFFFFF,
-    BLACK = 0x000000
+    BLACK = 0x000000,
+	ORANGE = 0xFFA500
 }			t_basic_colors;
 
 typedef enum e_psy_colors
 {
-	PSY_COL_1 = 0xFFA500, // Orange
     PSY_COL_2 = 0x800080, // Purple
     PSY_COL_3 = 0x00FF7F, // Spring Green
-    PSY_COL_4 = 0xFFFF00, // Yellow
     PSY_COL_5 = 0xFF1493, // Deep Pink
     PSY_COL_6 = 0x8A2BE2, // Blue Violet
     PSY_COL_7 = 0x00CED1, // Dark Turquoise
@@ -108,6 +107,7 @@ typedef struct s_vars
 	int		temp_x; // ? really useful
 	int		temp_y; // ? really useful
 	double	pyth_escaped; // checked value for escaped possibilities
+	double	// make definition change for plus and minus key
 }		t_vars;
 
 typedef struct s_complex
