@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 11:49:16 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 14:05:36 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,23 @@
 
 int	key_listener(int keycode, t_vars *vars)
 {
+	if (vars->definition <= 0) // ! double check to avoid program freezing
+		vars->definition = 1;
 	if (keycode == ECHAP_KEY)
 		win_close(vars);
-	if (keycode == PLUS_KEY)
-	{
-		ft_printf("Plus key\n");
-		vars->definition++;
-	}
-	if (keycode == MINUS_KEY)
-	{
-		ft_printf("Minus key\n");
-		vars->definition--;
-	}
-	if (keycode == UP_KEY)
-		ft_printf("Keycode : Up Key\n");
-	if (keycode == DOWN_KEY)
-		ft_printf("Keycode : Down Key\n");
-	if (keycode == LEFT_KEY) 
-		ft_printf("Keycode : Left Key\n");
-	if (keycode == RIGHT_KEY)
-		ft_printf("Keycode : Right Key\n");
+	else if (keycode == PLUS_KEY)
+		vars->definition += 3;
+	else if (keycode == MINUS_KEY)
+		vars->definition -= 3;
+	else if (keycode == UP_KEY)
+		vars->shift_y += 0.5;	
+	else if (keycode == DOWN_KEY)
+		vars->shift_y -= 0.5;	
+	else if (keycode == LEFT_KEY)
+		vars->shift_x += 0.5;
+	else if (keycode == RIGHT_KEY)
+		vars->shift_x -= 0.5;
+	print_fractal(vars);
 }
 
 int	mouse_listener(int mouseclick, t_vars *vars)

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 11:51:53 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 14:06:02 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-static void	print_fractal(t_vars *vars, char **av)
+void	print_fractal(t_vars *vars)
 {
 	if (vars->fractal_name == 'M')
-		print_mandelbrot(vars, av);
+		print_mandelbrot(vars);
 	// if (vars->fractal_name == 'J')
 	// if (vars->fractal_name == 'X')
 }
@@ -36,6 +36,11 @@ void	ft_init_mlx(t_vars *vars)
 		ft_printf("Incorrect window size\n");
 		exit(1);
 	}
+	vars->pyth_escaped = 4; // checks for escaped values
+	vars->definition = 1; // ! needs double checks both in key listenner and here
+	if (vars->definition <= 0)
+		vars->definition = 1;
+	
 	vars->mlx = mlx_init();
 	if (!vars->mlx)
 		malloc_error();
@@ -47,8 +52,21 @@ void	ft_init_mlx(t_vars *vars)
 		failed_image(vars);
 	vars->adrr = mlx_get_data_addr(vars->img, &vars->bits_per_pixel,
 			&vars->line_lenght, &vars->endian);
-	vars->pyth_escaped = 4; // checks for escaped values
-	vars->definition = 2;
+}
+
+void	ft_init_args(t_vars *vars, char **av)
+{
+	vars->fractal_name = av[1][0];
+	if (vars->fractal_name == 'J')
+		vars->julia_set = av[2][0];
+	else
+		vars->julia_set = '0';
+	if (vars->fractal_name != 'J' && av[2])
+		vars->color_arg = av[2][0];
+	else if (vars->fractal_name == 'J' && av[3])
+		vars->color_arg = av[3][0];
+	vars->shift_x = 0.0;
+	vars->shift_y = 0.0;
 }
 
 
@@ -58,10 +76,9 @@ int	main(int ac, char **av)
 
 	if (!arg_checker(ac, av))
 	{
-		vars.fractal_name = av[1][0];
-
 		ft_init_mlx(&vars);
-		print_fractal(&vars, av);
+		ft_init_args(&vars, av); // goal : bring everything inside one master struct
+		print_fractal(&vars);
 		mlx_hook(vars.win, X_CROSS, 1L << 0, &win_close, &vars); // close button
 		mlx_mouse_hook(vars.win, mouse_listener, &vars); // mouse listeners
 		mlx_mouse_get_pos(vars.mlx, vars.win, &vars.x, &vars.y); // mouse position
