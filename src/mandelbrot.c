@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 10:01:54 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 11:53:37 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void    handle_pixels(int x, int y, t_vars *vars)
     // how many times times I need to check if the point escaped
     // somes points are gonna need more calculations to escape or not the matrix
     // the more iterations, the more definition
-   while (i < DEFINITION)
+   while (i < vars->definition)
    {
     z = sum_complex(sqrt_complex(z), c);
 
@@ -84,7 +84,7 @@ void    handle_pixels(int x, int y, t_vars *vars)
     // if hypothenuse > 2, let's assume I has escaped
     if ((pow(z.x, 2) + pow(z.y, 2)) > vars->pyth_escaped)
     {
-        color = map(i, PSY_COL_6, PSY_COL_7, DEFINITION);
+        color = map(i, PSY_COL_6, PSY_COL_7, vars->definition);
         my_mlx_pixel_put(vars, x, y, color); // orange
         return;
     }

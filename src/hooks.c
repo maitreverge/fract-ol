@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 10:29:47 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 11:49:16 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,15 @@ int	key_listener(int keycode, t_vars *vars)
 	if (keycode == ECHAP_KEY)
 		win_close(vars);
 	if (keycode == PLUS_KEY)
-		ft_printf("Keycode : Plus Key\n"); // plus de def
+	{
+		ft_printf("Plus key\n");
+		vars->definition++;
+	}
 	if (keycode == MINUS_KEY)
-		ft_printf("Keycode : Minus Key\n"); // moins de def
+	{
+		ft_printf("Minus key\n");
+		vars->definition--;
+	}
 	if (keycode == UP_KEY)
 		ft_printf("Keycode : Up Key\n");
 	if (keycode == DOWN_KEY)

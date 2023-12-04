@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 10:29:27 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 11:53:06 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ typedef enum e_event
 {
 	WIN_WIDTH = 1500,
 	WIN_HEIGHT = 1500,
-	DEFINITION = 42, // need check
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
@@ -107,7 +106,7 @@ typedef struct s_vars
 	int		temp_x; // ? really useful
 	int		temp_y; // ? really useful
 	double	pyth_escaped; // checked value for escaped possibilities
-	double	// make definition change for plus and minus key
+	size_t	definition;// make definition change for plus and minus key
 }		t_vars;
 
 typedef struct s_complex
