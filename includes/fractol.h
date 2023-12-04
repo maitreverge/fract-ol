@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 08:25:54 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 08:38:50 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,10 @@ int		arg_checker(int ac, char **av);
 int		ft_strcmp(char *s1, char *s2);
 
 // mandelbrot.c
+double map(double i, double new_min, double new_max, double old_max);
+t_complex sum_complex(t_complex z1, t_complex z2);
+t_complex   sqrt_complex(t_complex z);
+void    handle_pixels(int x, int y, t_vars *vars);
 void	print_mandelbrot(t_vars *vars, char **av);
-double	map(double i, double new_min, double new_max, double old_max);
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 07:57:13 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 08:43:21 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,14 @@ t_complex   sqrt_complex(t_complex z)
     
 }
 
-void    handle_pixel(int x, int y, t_vars *vars)
+void    handle_pixels(int x, int y, t_vars *vars)
 {
     t_complex z;
     t_complex c;
+    size_t    i; // iterations
+    int color;
 
-    double temp_real;
-
+    i = 0;
     // first iteration
     z.x = 0;
     z.y = 0;
@@ -73,7 +74,9 @@ void    handle_pixel(int x, int y, t_vars *vars)
     c.y = map(y, -2, +2, WIN_HEIGHT);
 
     // how many times times I need to check if the point escaped
-   while (???)
+    // somes points are gonna need more calculations to escape or not the matrix
+    // the more iterations, the more definition
+   while (i < DEFINITION)
    {
     z = sum_complex(sqrt_complex(z), c);
 
@@ -81,9 +84,12 @@ void    handle_pixel(int x, int y, t_vars *vars)
     // if hypothenuse > 2, let's assume I has escaped
     if ((pow(z.x, 2) + pow(z.y, 2)) > vars->pyth_escaped)
     {
-        my_pixel_put()
+        color = map(i, BLACK, WHITE, DEFINITION);
+        my_mlx_pixel_put(vars, x, y, color); // orange
         return;
     }
+    ++i;
+    my_mlx_pixel_put(vars, x, y, PSY_COL_2); // spring green
    }
 } 
 
@@ -91,8 +97,8 @@ void    print_mandelbrot(t_vars *vars, char **av)
 {
 	// av[2] = COLOR R / G / B / WOW / LSD
     // ft_printf("MANDELBROT PRINTING");
-    int y;
     int x;
+    int y;
     
     y = -1;
     while (++y < WIN_HEIGHT)
@@ -103,6 +109,7 @@ void    print_mandelbrot(t_vars *vars, char **av)
             handle_pixels(x, y, vars);
         }
     }
+    mlx_put_image_to_window(vars->mlx, vars->win, vars->img, 0, 0);
 	
 }
 
