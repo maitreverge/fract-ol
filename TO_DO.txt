@@ -9,7 +9,7 @@ CONTROLS :
 - Need refined tunning about the definition + / - keys
 - Implement "simple scroll" in the first place.
 - Implement better scroll (following mouse position)
-
+- Right click on Julia => shift the set
 
 COLORS :
 - Implement black & white colors if colors not selected (MIN = BLACK, MAX = WHITE)

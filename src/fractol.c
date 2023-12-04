@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 16:30:40 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 17:36:57 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_init_args(t_vars *vars, char **av)
 		vars->color_arg = av[3][0];
 	vars->shift_x = 0.0;
 	vars->shift_y = 0.0;
-	vars->zoom = 1.0;
+	vars->original_zoom = 1.0;
 }
 
 
@@ -81,9 +81,7 @@ int	main(int ac, char **av)
 		ft_init_args(&vars, av); // goal : bring everything inside one master struct
 		print_fractal(&vars);
 		mlx_hook(vars.win, DestroyNotify, StructureNotifyMask, &win_close, &vars); // close button
-		mlx_hook(vars.win, ButtonPress, ButtonPressMask, mouse_listener, &vars);
-		// mlx_mouse_hook(vars.win, mouse_listener, &vars);
-		mlx_mouse_get_pos(vars.mlx, vars.win, &vars.x, &vars.y); // mouse position
+		mlx_hook(vars.win, ButtonPress, ButtonPressMask, mouse_listener, &vars); // souris
 		mlx_key_hook(vars.win, key_listener, &vars); // keyboard listeners
 		mlx_loop(vars.mlx);
 	}

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 16:26:14 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 17:51:38 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ typedef enum e_psy_colors
 // enum of mlk hooks events
 typedef enum e_event
 {
-	WIN_WIDTH = 1500,
-	WIN_HEIGHT = 1500,
+	WIN_WIDTH = 800,
+	WIN_HEIGHT = 800,
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
@@ -114,7 +114,8 @@ typedef struct s_vars
 	int		definition;// make definition change for plus and minus key
 	double shift_x; // valeurs qui bougent les fleches
 	double shift_y; // valeurs qui bougent les fleches
-	double	zoom;
+	double	original_zoom;
+	// double	tracked_zoom;
 }		t_vars;
 
 typedef struct s_complex
