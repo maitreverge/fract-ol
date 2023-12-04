@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 07:54:17 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 08:25:54 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,40 @@
 # include <X11/keysym.h>
 
 # define MALLOC_ERROR 1
+// # define DEFINITION 42
 
+typedef enum e_basic_colors
+{
+	RED = 0xFF0000,
+    GREEN = 0x00FF00,
+    BLUE = 0x0000FF,
+    YELLOW = 0xFFFF00,
+    MAGENTA = 0xFF00FF,
+    CYAN = 0x00FFFF,
+    WHITE = 0xFFFFFF,
+    BLACK = 0x000000
+}			t_basic_colors;
+
+typedef enum e_psy_colors
+{
+	PSY_COL_1 = 0xFFA500, // Orange
+    PSY_COL_2 = 0x800080, // Purple
+    PSY_COL_3 = 0x00FF7F, // Spring Green
+    PSY_COL_4 = 0xFFFF00, // Yellow
+    PSY_COL_5 = 0xFF1493, // Deep Pink
+    PSY_COL_6 = 0x8A2BE2, // Blue Violet
+    PSY_COL_7 = 0x00CED1, // Dark Turquoise
+    PSY_COL_8 = 0xFF6347, // Tomato
+    PSY_COL_9 = 0x7CFC00, // Lawn Green
+    PSY_COL_10 = 0x4682B4, // Steel Blue
+}			t_psy_colors;
 
 // enum of mlk hooks events
 typedef enum e_event
 {
 	WIN_WIDTH = 1500,
 	WIN_HEIGHT = 1500,
+	DEFINITION = 42, // need check
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
