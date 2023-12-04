@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 16:26:02 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 07:57:13 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,14 @@ void    handle_pixel(int x, int y, t_vars *vars)
     z = sum_complex(sqrt_complex(z), c);
 
     // if the value escaped
-    if (???)
+    // if hypothenuse > 2, let's assume I has escaped
+    if ((pow(z.x, 2) + pow(z.y, 2)) > vars->pyth_escaped)
     {
         my_pixel_put()
+        return;
     }
    }
-}
+} 
 
 void    print_mandelbrot(t_vars *vars, char **av)
 {

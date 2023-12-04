@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 16:25:06 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 07:56:53 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	ft_init_mlx(t_vars *vars)
 		failed_image(vars);
 	vars->adrr = mlx_get_data_addr(vars->img, &vars->bits_per_pixel,
 			&vars->line_lenght, &vars->endian);
+	vars->pyth_escaped = 4; // checks for escaped values
 }
 
 

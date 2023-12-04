@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 16:26:35 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 07:54:17 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct s_vars
 	int		y; // position for tracking the mouse
 	int		temp_x; // ? really useful
 	int		temp_y; // ? really useful
+	double	pyth_escaped; // checked value for escaped possibilities
 }		t_vars;
 
 typedef struct s_complex
