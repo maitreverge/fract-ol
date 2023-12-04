@@ -1,0 +1,27 @@
+Fractals job :
+- Implement Julia with different sets (only needs shifting x and y)
+( Possibly straight shifting from Mandelbrot)
+
+- Implement a third fractal (burning ship, or other one)
+
+CONTROLS :
+
+- Need refined tunning about the definition + / - keys
+- Implement "simple scroll" in the first place.
+- Implement better scroll (following mouse position)
+
+
+COLORS :
+- Implement black & white colors if colors not selected (MIN = BLACK, MAX = WHITE)
+- Implement selected colors (R, G, B, W, L)
+
+
+NEED FIXING =
+Turns char* args colors into chars, for simplicity during arg parsing
+
+
+BONUSES :
+- A third fractal
+- Scroll tracking zoom
+- Move the fractal with keys
+- Make the color range shift 

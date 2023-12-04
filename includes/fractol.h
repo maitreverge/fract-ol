@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 13:45:09 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 14:37:04 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,22 @@
 
 typedef enum e_basic_colors
 {
+    BLACK = 0x000000,
+    WHITE = 0xFFFFFF,
 	RED = 0xFF0000,
     GREEN = 0x00FF00,
     BLUE = 0x0000FF,
     YELLOW = 0xFFFF00,
     MAGENTA = 0xFF00FF,
     CYAN = 0x00FFFF,
-    WHITE = 0xFFFFFF,
-    BLACK = 0x000000,
 	ORANGE = 0xFFA500
 }			t_basic_colors;
 
 typedef enum e_psy_colors
 {
+	MIN_GREEN = 0x006400,
+	MAX_GREEN = 0x00FF00,
+	PSY_PURPLE = 0xDF00FF,
     PSY_COL_2 = 0x800080, // Purple
     PSY_COL_3 = 0x00FF7F, // Spring Green
     PSY_COL_5 = 0xFF1493, // Deep Pink

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 14:06:02 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 14:37:10 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_init_mlx(t_vars *vars)
 	if (vars->definition <= 0)
 		vars->definition = 1;
 	
-	vars->mlx = mlx_init();
+	vars->mlx = mlx_init();  
 	if (!vars->mlx)
 		malloc_error();
 	vars->win = mlx_new_window(vars->mlx, WIN_WIDTH, WIN_HEIGHT, "Fractol");
