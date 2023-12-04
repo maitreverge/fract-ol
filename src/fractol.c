@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 15:38:38 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 16:30:40 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,9 @@ int	main(int ac, char **av)
 		ft_init_mlx(&vars);
 		ft_init_args(&vars, av); // goal : bring everything inside one master struct
 		print_fractal(&vars);
-		mlx_hook(vars.win, X_CROSS, 1L << 0, &win_close, &vars); // close button
-		mlx_mouse_hook(vars.win, mouse_listener, &vars); // mouse listeners
+		mlx_hook(vars.win, DestroyNotify, StructureNotifyMask, &win_close, &vars); // close button
+		mlx_hook(vars.win, ButtonPress, ButtonPressMask, mouse_listener, &vars);
+		// mlx_mouse_hook(vars.win, mouse_listener, &vars);
 		mlx_mouse_get_pos(vars.mlx, vars.win, &vars.x, &vars.y); // mouse position
 		mlx_key_hook(vars.win, key_listener, &vars); // keyboard listeners
 		mlx_loop(vars.mlx);

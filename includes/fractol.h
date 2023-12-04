@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 15:36:11 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 16:26:14 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ int		get_color(char *str);
 
 // hooks.c
 int		key_listener(int keycode, t_vars *vars);
-int		mouse_listener(int mouseclick, t_vars *vars);
+int		mouse_listener(int mouseclick, int x, int y, t_vars *vars);
 int		mouse_on_off(t_vars *vars);
 
 // security.c

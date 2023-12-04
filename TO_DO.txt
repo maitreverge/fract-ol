@@ -18,6 +18,8 @@ COLORS :
 
 NEED FIXING =
 Turns char* args colors into chars, for simplicity during arg parsing
+Rework s_events numbers, lot are already integrated into the MLX
+
 
 
 BONUSES :
