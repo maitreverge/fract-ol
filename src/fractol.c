@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 14:37:10 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 15:38:38 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	ft_init_args(t_vars *vars, char **av)
 		vars->color_arg = av[3][0];
 	vars->shift_x = 0.0;
 	vars->shift_y = 0.0;
+	vars->zoom = 1.0;
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 14:30:32 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 15:39:48 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,9 @@ void    handle_pixels(int x, int y, t_vars *vars)
     z.y = 0;
 
     // those are the actual pixel coordinates modified to fit Mandelbrot set
-    c.x = map(x, -2, +2, WIN_WIDTH) + vars->shift_x; // + vars shift on the x axis
-    c.y = map(y, -2, +2, WIN_HEIGHT) + vars->shift_y; // shift on the y axis, up and down
+    c.x = (map(x, -2, +2, WIN_WIDTH) * vars->zoom) + vars->shift_x; // + vars shift on the x axis
+    c.y = (map(y, -2, +2, WIN_HEIGHT) * vars->zoom) + vars->shift_y; // shift on the y axis, up and down
+    
 
     // how many times times I need to check if the point escaped
     // somes points are gonna need more calculations to escape or not the matrix
@@ -105,9 +106,7 @@ void    print_mandelbrot(t_vars *vars)
     {
         x = -1;
         while (++x < WIN_WIDTH)
-        {
             handle_pixels(x, y, vars);
-        }
     }
     mlx_put_image_to_window(vars->mlx, vars->win, vars->img, 0, 0);
 	

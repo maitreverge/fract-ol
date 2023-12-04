@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 14:05:36 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 15:44:11 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ int	mouse_listener(int mouseclick, t_vars *vars)
 	if (mouseclick == 3)
 		ft_printf("Mousecode : Right Click\n");
 	if (mouseclick == 4)
-		ft_printf("Mousecode : Up Scroll\n");
+		vars->zoom *= 0.9; // zoom in
 	if (mouseclick == 5)
-		ft_printf("Mousecode : Down Scroll\n");
+		vars->zoom *= 1.1; // zoom out
+	print_fractal(vars);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 14:37:04 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/04 15:36:11 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ typedef struct s_vars
 	int		definition;// make definition change for plus and minus key
 	double shift_x; // valeurs qui bougent les fleches
 	double shift_y; // valeurs qui bougent les fleches
+	double	zoom;
 }		t_vars;
 
 typedef struct s_complex
