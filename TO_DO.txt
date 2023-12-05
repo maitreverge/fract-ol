@@ -24,7 +24,6 @@ Rework s_events numbers, lot are already integrated into the MLX
 
 BONUSES :
 - Scroll tracking zoom
-- Move the fractal with keys
 - Make the color range shift 
 
 PRIORITY TO DO :

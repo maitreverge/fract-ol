@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 17:27:25 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:59:21 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	key_listener(int keycode, t_vars *vars)
 	else if (keycode == JULIA)
     {
         vars->fractal_name = 'J';
-        vars->julia_set = '1';   
+        vars->julia_set = '1';
+        assign_julia(vars);   
     }
 	else if (keycode == TRICORN)
         vars->fractal_name = 'X';
@@ -48,11 +49,18 @@ int	key_listener(int keycode, t_vars *vars)
 // ! classic mouse zooming
 int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
 {
-    if (mouseclick == 4)
-        vars->original_zoom *= 0.8; // zoom in
-    else if (mouseclick == 5)
+    if (mouseclick == SCROLL_DOWN)
         vars->original_zoom *= 1.2; // zoom out
-    ft_printf("Actual key = %d\n", mouseclick);
+    else if (mouseclick == SCROLL_UP)
+        vars->original_zoom *= 0.8; // zoom in
+    else if (mouseclick == RIGHT_CLICK)
+    {
+        vars->julia_set++;
+        if (vars->julia_set > 51)
+            vars->julia_set = '1';
+        assign_julia(vars);
+    }
+    // ft_printf("Actual key = %d\n", mouseclick);
     
     print_fractal(vars);
     return (0);
