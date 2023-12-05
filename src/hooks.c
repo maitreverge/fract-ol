@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 15:46:34 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:27:25 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,19 @@ int	key_listener(int keycode, t_vars *vars)
 		vars->shift_x += (0.5 * vars->original_zoom);
 	else if (keycode == RIGHT_KEY)
 		vars->shift_x -= (0.5 * vars->original_zoom);
+	else if (keycode == MANDELBROT)
+        vars->fractal_name = 'M';
+	else if (keycode == JULIA)
+    {
+        vars->fractal_name = 'J';
+        vars->julia_set = '1';   
+    }
+	else if (keycode == TRICORN)
+        vars->fractal_name = 'X';
     if (vars->definition <= 0)
 		vars->definition = 1;
 	print_fractal(vars);  
+    // ft_printf("Pressed key = %d\n", keycode);
 }
 
 // ! classic mouse zooming
@@ -42,6 +52,7 @@ int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
         vars->original_zoom *= 0.8; // zoom in
     else if (mouseclick == 5)
         vars->original_zoom *= 1.2; // zoom out
+    ft_printf("Actual key = %d\n", mouseclick);
     
     print_fractal(vars);
     return (0);

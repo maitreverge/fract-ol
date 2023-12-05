@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 17:04:39 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:27:40 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ typedef enum e_keys
 	UP_KEY = 65362,
 	DOWN_KEY = 65364,
 	LEFT_KEY = 65361,
-	RIGHT_KEY = 65363
+	RIGHT_KEY = 65363,
+	MANDELBROT = 109,
+	JULIA = 106,
+	TRICORN = 120
 	// add keys de numeros
 }			t_keys;
 
