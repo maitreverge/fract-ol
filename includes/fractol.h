@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 15:44:28 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:04:39 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ typedef enum e_psy_colors
 // enum of mlk hooks events
 typedef enum e_event
 {
-	WIN_WIDTH = 1200,
-	WIN_HEIGHT = 1200,
+	WIN_WIDTH = 1042,
+	WIN_HEIGHT = 1042,
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
@@ -175,6 +175,11 @@ t_complex   sqrt_complex(t_complex z);
 void    handle_pixels(int x, int y, t_vars *vars);
 void	print_mandelbrot(t_vars *vars);
 void    which_fractal(t_complex *z, t_complex *c, t_vars *vars);
+
+// guides.c
+void	display_guide_1(t_vars *vars);
+void	display_guide_2(t_vars *vars);
+
 
 
 #endif 

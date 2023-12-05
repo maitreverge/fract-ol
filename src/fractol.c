@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 16:09:46 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 17:05:53 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	print_fractal(t_vars *vars)
 	print_mandelbrot(vars);
 	// if (vars->fractal_name == 'J')
 	// if (vars->fractal_name == 'X')
-	// ! make full usage function within the print fractal
-	mlx_string_put(vars->mlx, vars->win, 41, 35, RED, "Controls Keys");
+	display_guide_1(vars);
+	display_guide_2(vars);
 }
 
 void	ft_init_mlx(t_vars *vars)
