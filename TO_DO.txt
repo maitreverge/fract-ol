@@ -27,3 +27,7 @@ BONUSES :
 - Scroll tracking zoom
 - Move the fractal with keys
 - Make the color range shift 
+
+PRIORITY TO DO :
+Implement Julia set
+

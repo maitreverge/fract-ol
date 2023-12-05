@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 13:37:16 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 15:44:28 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,8 @@ int		get_color(char *str);
 int		key_listener(int keycode, t_vars *vars);
 int		mouse_listener(int mouseclick, int x, int y, t_vars *vars);
 int		mouse_on_off(t_vars *vars);
+void assign_julia(t_vars *vars);
+
 
 // security.c
 int		win_checker(void);
@@ -172,5 +174,7 @@ t_complex sum_complex(t_complex z1, t_complex z2);
 t_complex   sqrt_complex(t_complex z);
 void    handle_pixels(int x, int y, t_vars *vars);
 void	print_mandelbrot(t_vars *vars);
+void    which_fractal(t_complex *z, t_complex *c, t_vars *vars);
+
 
 #endif 

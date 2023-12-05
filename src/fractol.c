@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 14:41:31 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 15:58:51 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color)
 
 void	print_fractal(t_vars *vars)
 {
-	if (vars->fractal_name == 'M')
-		print_mandelbrot(vars);
+	// if (vars->fractal_name == 'M')
+	print_mandelbrot(vars);
 	// if (vars->fractal_name == 'J')
 	// if (vars->fractal_name == 'X')
+	// ! make full usage function within the print fractal
 	mlx_string_put(vars->mlx, vars->win, 41, 35, RED, "Controls Keys");
-
 }
 
 void	ft_init_mlx(t_vars *vars)

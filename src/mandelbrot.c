@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 14:22:54 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 15:48:06 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,17 +101,17 @@ void    handle_pixels(int x, int y, t_vars *vars)
     // the more iterations, the more definition
    while (i < vars->definition)
    {
-    if (vars->fractal_name == 'X')
-    {
-        // abs_z = {fabs(z.x), fabs(z.y)};
-        abs_z.x = fabs(z.x);
-        abs_z.y = fabs(z.y);
-        z = sum_complex(sqrt_complex(abs_z), c);
-    }
-    else // madelbrot and Julia
-    {
+    // if (vars->fractal_name == 'X')
+    // {
+    //     // abs_z = {fabs(z.x), fabs(z.y)};
+    //     abs_z.x = fabs(z.x);
+    //     abs_z.y = fabs(z.y);
+    //     z = sum_complex(sqrt_complex(abs_z), c);
+    // }
+    // else // madelbrot and Julia
+    // {
         z = sum_complex(sqrt_complex(z), c);
-    }
+    // }
 
     // if the value escaped
     // if hypothenuse > 2, let's assume I has escaped
