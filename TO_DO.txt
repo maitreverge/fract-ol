@@ -1,19 +1,15 @@
-Fractals job :
-- Implement Julia with different sets (only needs shifting x and y)
-( Possibly straight shifting from Mandelbrot)
-
-- Implement a third fractal (burning ship, or other one)
-
 CONTROLS :
 
-- Need refined tunning about the definition + / - keys
-- Implement "simple scroll" in the first place.
 - Implement better scroll (following mouse position)
-- Right click on Julia => shift the set
 
 COLORS :
-- Implement black & white colors if colors not selected (MIN = BLACK, MAX = WHITE)
 - Implement selected colors (R, G, B, W, L)
+==> make subfunction for color_hot_swap
+==> Make subfunction for fractal_hot_swap
+==>						julia_hot_swap
+
+left click => Switch premade color_hotswap
+Space bars => color_shifting
 
 
 NEED FIXING =
@@ -31,3 +27,4 @@ Fine tuning Julia set, why not implementing args values
 
 Add full GCC flags to avoid unsused variable for valgrind
 
+Add reset zoom = 0 number;

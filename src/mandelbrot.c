@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 16:25:19 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 18:02:29 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,12 +121,12 @@ void    handle_pixels(int x, int y, t_vars *vars)
     // if hypothenuse > 2, let's assume I has escaped
     if ((pow(z.x, 2) + pow(z.y, 2)) > vars->pyth_escaped)
     {
-        color = map(i, MIN_GREEN, MAX_GREEN, vars->definition);
+        color = map(i, BLACK, BLACK, vars->definition);
         my_mlx_pixel_put(vars, x, y, color); // orange
         return;
     }
     ++i;
-    my_mlx_pixel_put(vars, x, y, PSY_COL_9); // spring green
+    my_mlx_pixel_put(vars, x, y, WHITE); // spring green
    }
 } 
 
