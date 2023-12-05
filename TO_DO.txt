@@ -29,5 +29,7 @@ BONUSES :
 - Make the color range shift 
 
 PRIORITY TO DO :
-Implement Julia set
+Fine tuning Julia set, why not implementing args values
+
+Add full GCC flags to avoid unsused variable for valgrind
 

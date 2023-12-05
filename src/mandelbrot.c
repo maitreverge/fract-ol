@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 15:48:06 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 16:25:19 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,20 @@ t_complex   sqrt_complex(t_complex z)
 
 void    which_fractal(t_complex *z, t_complex *c, t_vars *vars)
 {
-    if (vars->fractal_name == 'M')
-    {
-        c->x = z->x;
-        c->y = z->y;
-    }
-    else if (vars->fractal_name == 'J')
+    if (vars->fractal_name == 'J')
     {
         c->x = vars->julia_x;  
         c->y = vars->julia_y;  
     }
+    else
+    {
+        c->x = z->x;
+        c->y = z->y;
+    }
+    
+    //!   previous conditoon
+    // else (vars->fractal_name == 'J')
+    
     // else if (vars->fractal_name == 'X')
 
 }
@@ -77,7 +81,7 @@ void    handle_pixels(int x, int y, t_vars *vars)
 {
     t_complex z;
     t_complex c;
-    t_complex abs_z;
+    t_complex tri_z;
     size_t    i; // iterations
     int color;
 
@@ -101,17 +105,17 @@ void    handle_pixels(int x, int y, t_vars *vars)
     // the more iterations, the more definition
    while (i < vars->definition)
    {
-    // if (vars->fractal_name == 'X')
-    // {
-    //     // abs_z = {fabs(z.x), fabs(z.y)};
-    //     abs_z.x = fabs(z.x);
-    //     abs_z.y = fabs(z.y);
-    //     z = sum_complex(sqrt_complex(abs_z), c);
-    // }
-    // else // madelbrot and Julia
-    // {
+    if (vars->fractal_name == 'X') // third fractal
+    {
+        // abs_z = {fabs(z.x), fabs(z.y)};
+        tri_z.x = z.x;
+        tri_z.y = -z.y;
+        z = sum_complex(sqrt_complex(tri_z), c);
+    }
+    else // madelbrot and Julia
+    {
         z = sum_complex(sqrt_complex(z), c);
-    // }
+    }
 
     // if the value escaped
     // if hypothenuse > 2, let's assume I has escaped

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 15:58:51 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 16:09:46 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void assign_julia(t_vars *vars)
     }
     else if (vars->julia_set == '2')
     {
-        vars->julia_x = 0.285;
-        vars->julia_y = 0.01;
+        vars->julia_x = -0.4;
+        vars->julia_y = 0.65;
     }
     else if (vars->julia_set == '3')
     {
