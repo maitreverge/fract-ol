@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 11:42:20 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 13:37:16 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,8 @@ typedef struct s_vars
 {
 	char	fractal_name;
 	char	julia_set;
+	double	julia_x;
+	double	julia_y;
 	char	color_arg;
 	void	*mlx;
 	void	*win;
@@ -161,6 +163,8 @@ int		arg_checker(int ac, char **av);
 
 // utils.c
 int		ft_strcmp(char *s1, char *s2);
+double	atodbl(char *str);
+
 
 // mandelbrot.c
 double map(double i, double new_min, double new_max, double old_max);

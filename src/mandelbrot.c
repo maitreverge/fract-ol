@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 11:15:39 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 14:05:08 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,22 @@ t_complex   sqrt_complex(t_complex z)
     
 }
 
+void    which_fractal(t_complex *z, t_complex *c, t_vars *vars)
+{
+    if (vars->fractal_name == 'M')
+    {
+        c->x = z->x;
+        c->y = z->y;
+    }
+    else if (vars->fractal_name == 'J')
+    {
+        c->x = vars->julia_x;  
+        c->y = vars->julia_y;  
+    }
+    // else if (vars->fractal_name == 'X')
+
+}
+
 void    handle_pixels(int x, int y, t_vars *vars)
 {
     t_complex z;
@@ -66,24 +82,32 @@ void    handle_pixels(int x, int y, t_vars *vars)
 
     i = 0;
     // first iteration
-    z.x = 0;
-    z.y = 0;
+    // z.x = 0;
+    // z.y = 0;
 
     // those are the actual pixel coordinates modified to fit Mandelbrot set
-    c.x = (map(x, -2, +2, WIN_WIDTH) * vars->original_zoom) + vars->shift_x; // + vars shift on the x axis
-    c.y = (map(y, -2, +2, WIN_HEIGHT) * vars->original_zoom) + vars->shift_y; // shift on the y axis, up and down
+    z.x = (map(x, -2, +2, WIN_WIDTH) * vars->original_zoom) + vars->shift_x; // + vars shift on the x axis
+    z.y = (map(y, -2, +2, WIN_HEIGHT) * vars->original_zoom) + vars->shift_y; // shift on the y axis, up and down
 
     
     // c.x = (map(x, -2, +2, WIN_WIDTH)) + vars->shift_x; // + vars shift on the x axis
     // c.y = (map(y, -2, +2, WIN_HEIGHT)) + vars->shift_y; // shift on the y axis, up and down
     
+    which_fractal(&z, &c, vars);
 
     // how many times times I need to check if the point escaped
     // somes points are gonna need more calculations to escape or not the matrix
     // the more iterations, the more definition
    while (i < vars->definition)
    {
-    z = sum_complex(sqrt_complex(z), c);
+    if (vars->fractal_name == 'X')
+    {
+        z = sum_complex(sqrt_complex(fabs(z.x), fabs(z.y), c));
+    }
+    else // madelbrot and Julia
+    {
+        z = sum_complex(sqrt_complex(z), c);
+    }
 
     // if the value escaped
     // if hypothenuse > 2, let's assume I has escaped

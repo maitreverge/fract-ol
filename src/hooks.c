@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 11:30:17 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 13:23:21 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,38 +36,38 @@ int	key_listener(int keycode, t_vars *vars)
 }
 
 // ! classic mouse zooming
-// int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
-// {
-//     if (mouseclick == 4)
-//         vars->original_zoom *= 0.8; // zoom in
-//     else if (mouseclick == 5)
-//         vars->original_zoom *= 1.2; // zoom out
-    
-//     print_fractal(vars);
-//     return (0);
-// }
-
 int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
 {
-    if (mouseclick != 4 && mouseclick != 5)
-        return (0);
-    double zoom_factor;
     if (mouseclick == 4)
-        zoom_factor = 0.8; // zoom in
+        vars->original_zoom *= 0.8; // zoom in
     else if (mouseclick == 5)
-        zoom_factor = 1.2; // zoom out
-
-    // Calculate the new zoom level
-    double new_zoom = vars->original_zoom * zoom_factor;
-
-    // Calculate the new shift values based on the mouse position and the new zoom level
-    vars->shift_x += (x - vars->shift_x) * (1 - zoom_factor);
-    vars->shift_y += (y - vars->shift_y) * (1 - zoom_factor);
-    vars->original_zoom = new_zoom;
-
+        vars->original_zoom *= 1.2; // zoom out
+    
     print_fractal(vars);
     return (0);
 }
+
+// int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
+// {
+//     if (mouseclick != 4 && mouseclick != 5)
+//         return (0);
+//     double zoom_factor;
+//     if (mouseclick == 4)
+//         zoom_factor = 0.8; // zoom in
+//     else if (mouseclick == 5)
+//         zoom_factor = 1.2; // zoom out
+
+//     // Calculate the new zoom level
+//     double new_zoom = vars->original_zoom * zoom_factor;
+
+//     // Calculate the new shift values based on the mouse position and the new zoom level
+//     vars->shift_x += (x - vars->shift_x) * (1 - zoom_factor);
+//     vars->shift_y += (y - vars->shift_y) * (1 - zoom_factor);
+//     vars->original_zoom = new_zoom;
+
+//     print_fractal(vars);
+//     return (0);
+// }
 
 /*
 

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 11:42:38 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 13:40:03 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,11 @@ void	ft_init_args(t_vars *vars, char **av)
 {
 	vars->fractal_name = av[1][0];
 	if (vars->fractal_name == 'J')
+	{
 		vars->julia_set = av[2][0];
+		vars->julia_x = atodbl(av[2]);
+		vars->julia_y = atodbl(av[2]);
+	}
 	else
 		vars->julia_set = '0';
 	if (vars->fractal_name != 'J' && av[2])
@@ -70,6 +74,7 @@ void	ft_init_args(t_vars *vars, char **av)
 	vars->shift_x = 0.0;
 	vars->shift_y = 0.0;
 	vars->original_zoom = 1.0;
+	
 }
 
 
