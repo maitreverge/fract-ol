@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 11:25:04 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 11:30:17 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	key_listener(int keycode, t_vars *vars)
 
 int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
 {
+    if (mouseclick != 4 && mouseclick != 5)
+        return (0);
     double zoom_factor;
     if (mouseclick == 4)
         zoom_factor = 0.8; // zoom in
@@ -59,9 +61,8 @@ int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
     double new_zoom = vars->original_zoom * zoom_factor;
 
     // Calculate the new shift values based on the mouse position and the new zoom level
-    vars->shift_x = (x / new_zoom) - ((x - vars->shift_x) / vars->original_zoom);
-    vars->shift_y = (y / new_zoom) - ((y - vars->shift_y) / vars->original_zoom);
-
+    vars->shift_x += (x - vars->shift_x) * (1 - zoom_factor);
+    vars->shift_y += (y - vars->shift_y) * (1 - zoom_factor);
     vars->original_zoom = new_zoom;
 
     print_fractal(vars);

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/04 17:36:57 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 11:42:38 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	print_fractal(t_vars *vars)
 		print_mandelbrot(vars);
 	// if (vars->fractal_name == 'J')
 	// if (vars->fractal_name == 'X')
+	mlx_string_put(vars->mlx, vars->win, 41, 35, RED, "Controls Keys");
+
 }
 
 void	ft_init_mlx(t_vars *vars)
@@ -80,6 +82,7 @@ int	main(int ac, char **av)
 		ft_init_mlx(&vars);
 		ft_init_args(&vars, av); // goal : bring everything inside one master struct
 		print_fractal(&vars);
+		// mlx_string_put(vars.mlx, vars.win, 41, 35, RED, "Controls Keys");
 		mlx_hook(vars.win, DestroyNotify, StructureNotifyMask, &win_close, &vars); // close button
 		mlx_hook(vars.win, ButtonPress, ButtonPressMask, mouse_listener, &vars); // souris
 		mlx_key_hook(vars.win, key_listener, &vars); // keyboard listeners
