@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 13:40:03 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 14:41:31 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,35 @@ void	ft_init_mlx(t_vars *vars)
 			&vars->line_lenght, &vars->endian);
 }
 
+void assign_julia(t_vars *vars)
+{
+    if (vars->julia_set == '1')
+    {
+        vars->julia_x = -0.8;
+        vars->julia_y = 0.156;
+    }
+    else if (vars->julia_set == '2')
+    {
+        vars->julia_x = 0.285;
+        vars->julia_y = 0.01;
+    }
+    else if (vars->julia_set == '3')
+    {
+        vars->julia_x = 0.37;
+        vars->julia_y = 0.1;
+    }
+}
+
 void	ft_init_args(t_vars *vars, char **av)
 {
 	vars->fractal_name = av[1][0];
 	if (vars->fractal_name == 'J')
 	{
 		vars->julia_set = av[2][0];
-		vars->julia_x = atodbl(av[2]);
-		vars->julia_y = atodbl(av[2]);
+		assign_julia(vars);
 	}
 	else
-		vars->julia_set = '0';
+		vars->julia_set = '0'; // nul setting variable
 	if (vars->fractal_name != 'J' && av[2])
 		vars->color_arg = av[2][0];
 	else if (vars->fractal_name == 'J' && av[3])

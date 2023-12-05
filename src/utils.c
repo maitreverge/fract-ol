@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:33:20 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 13:36:57 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 14:33:37 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ double atodbl(char *str)
 	double result;
 	double pow;
 
-	result = 0;
+	result = 1;
 	pow = 1;
 	while (*str)
 	{
 		pow /= (10 + (*str - 48));
-		result = result * (*str++ - 48) * pow;
+		result = result + (*str - 48) * pow;
+		*str++;
 	}
 	return (result);
 }

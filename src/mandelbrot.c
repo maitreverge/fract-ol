@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 14:05:08 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/05 14:22:54 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void    handle_pixels(int x, int y, t_vars *vars)
 {
     t_complex z;
     t_complex c;
+    t_complex abs_z;
     size_t    i; // iterations
     int color;
 
@@ -102,7 +103,10 @@ void    handle_pixels(int x, int y, t_vars *vars)
    {
     if (vars->fractal_name == 'X')
     {
-        z = sum_complex(sqrt_complex(fabs(z.x), fabs(z.y), c));
+        // abs_z = {fabs(z.x), fabs(z.y)};
+        abs_z.x = fabs(z.x);
+        abs_z.y = fabs(z.y);
+        z = sum_complex(sqrt_complex(abs_z), c);
     }
     else // madelbrot and Julia
     {
