@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 11:28:08 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:37:48 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int	key_listener(int keycode, t_vars *vars)
 		vars->definition = 1;
 	if (keycode == ECHAP_KEY)
 		win_close(vars);
-    else if (keycode == SPACE_KEY)
-        fractal_colorshift_space(vars);
+    // else if (keycode == SPACE_KEY)
+    //     fractal_colorshift_space(vars);
     fractal_definition(keycode, vars);
     fractal_move(keycode, vars);
 	fractal_hotswap(keycode, vars);
@@ -61,7 +61,7 @@ int	key_listener(int keycode, t_vars *vars)
     if (vars->definition <= 0)
 		vars->definition = 1;
 	print_fractal(vars);  
-    ft_printf("Actual key = %d\n", keycode);
+    // ft_printf("Actual key = %d\n", keycode);
 }
 
 // ! classic mouse zooming

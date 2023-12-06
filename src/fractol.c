@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 10:50:33 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:41:23 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_init_mlx(t_vars *vars)
 		exit(1);
 	}
 	vars->pyth_escaped = 4; // checks for escaped values
-	vars->definition = 1; // ! needs double checks both in key listenner and here
+	vars->definition = 4; // ! needs double checks both in key listenner and here
 	if (vars->definition <= 0)
 		vars->definition = 1;
 	

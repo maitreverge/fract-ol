@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:19:13 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 11:30:34 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:38:50 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	ft_init_color(t_vars *vars)
 	}
 	else if (vars->color_arg == 'B')
 	{
-		vars->colors.col_min = PSY_COL_6;
+		vars->colors.col_min = PSY_COL_10;
 		vars->colors.col_max = BLUE;
 		vars->colors.col_fract = CYAN;
 	}
@@ -141,21 +141,21 @@ void	fractal_colorshift_mouse(t_vars *vars)
 		vars->colors.col_fract += 42;
 }
 
-void	fractal_colorshift_space(t_vars *vars)
-{
-	if (vars->colors.col_min == WHITE) // min
-		vars->colors.col_min -= 21;
-	else
-		vars->colors.col_min += 21;
-	if (vars->colors.col_max == WHITE) // max
-		vars->colors.col_max -= 21;
-	else
-		vars->colors.col_max += 21;
-	if (vars->colors.col_fract == WHITE) // fract
-		vars->colors.col_fract -= 21;
-	else
-		vars->colors.col_fract += 21;
-}
+// void	fractal_colorshift_space(t_vars *vars)
+// {
+// 	if (vars->colors.col_min == WHITE) // min
+// 		vars->colors.col_min -= 21;
+// 	else
+// 		vars->colors.col_min += 21;
+// 	if (vars->colors.col_max == WHITE) // max
+// 		vars->colors.col_max -= 21;
+// 	else
+// 		vars->colors.col_max += 21;
+// 	if (vars->colors.col_fract == WHITE) // fract
+// 		vars->colors.col_fract -= 21;
+// 	else
+// 		vars->colors.col_fract += 21;
+// }
 
 
 
