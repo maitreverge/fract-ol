@@ -6,7 +6,7 @@
 #    By: flverge <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 09:04:59 by flverge           #+#    #+#              #
-#    Updated: 2023/12/05 16:01:04 by flverge          ###   ########.fr        #
+#    Updated: 2023/12/06 11:49:18 by flverge          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME = fractol
 
 # Compiler options
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 
 # libft
@@ -50,7 +50,7 @@ all: $(MLX) $(LIBFT) $(NAME)
 
 # remettre flags
 %.o: %.c
-	@$(CC) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
 	@make -sC $(LIBFT_PATH)
@@ -72,7 +72,7 @@ $(MLX):
 $(NAME): $(OBJ)
 	@echo "$(BOLD)$(RED)🛠️      Compiling Fractol    🛠️$(RESET)"
 	@echo "\n"
-	@$(CC) $(OBJ) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm -lz -o $(NAME) -g
+	@$(CC) $(CFLAGS) $(OBJ) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm -lz -o $(NAME) -g
 	@echo "$(BOLD)$(GREEN)✅✅      Fractol fully compiled, ready to use       ✅✅$(RESET)"
 	@echo "\n"
 

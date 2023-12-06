@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 11:41:23 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:50:24 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_fractal(t_vars *vars)
 
 void	ft_init_mlx(t_vars *vars)
 {
-	if (!win_checker)
+	if (!win_checker())
 	{
 		ft_printf("Incorrect window size\n");
 		exit(1);

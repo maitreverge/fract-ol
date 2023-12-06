@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 11:37:48 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:52:48 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,14 @@ int	key_listener(int keycode, t_vars *vars)
     fractal_colorswap(keycode, vars);
     if (vars->definition <= 0)
 		vars->definition = 1;
-	print_fractal(vars);  
+	print_fractal(vars);
+    return (0); 
     // ft_printf("Actual key = %d\n", keycode);
 }
 
 // ! classic mouse zooming
-int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
+// int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
+int	mouse_listener(int mouseclick, t_vars *vars)
 {
     if (mouseclick == SCROLL_DOWN)
         vars->original_zoom *= 1.2; // zoom out

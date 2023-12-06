@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 11:08:28 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:51:32 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void    handle_pixels(int x, int y, t_vars *vars)
     t_complex z;
     t_complex c;
     t_complex tri_z;
-    size_t    i; // iterations
+    int    i; // iterations
     int color;
 
     i = 0;
