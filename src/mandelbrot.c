@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 12:47:33 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 17:51:07 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ void	handle_pixels(int x, int y, t_vars *v)
 	int			color;
 
 	i = 0;
-	z.x = (map(x, -2, +2, WIN_WIDTH) * v->original_zoom) + v->shift_x;
-	z.y = (map(y, -2, +2, WIN_HEIGHT) * v->original_zoom) + v->shift_y;
+	z.x = (map(x, v->min_x, v->max_x, WIN_WIDTH)) + v->shift_x;
+	z.y = (map(y, v->min_y, v->max_y, WIN_HEIGHT)) + v->shift_y;
 	which_fractal(&z, &c, v);
 	while (i < v->definition)
 	{
@@ -78,6 +78,7 @@ void	print_mandelbrot(t_vars *vars)
 	int	y;
 
 	y = -1;
+	mlx_clear_window(vars->mlx, vars->win);
 	while (++y < WIN_HEIGHT)
 	{
 		x = -1;

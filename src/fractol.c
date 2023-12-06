@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 14:01:00 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 17:16:21 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ void	ft_init_mlx(t_vars *vars)
 		failed_image(vars);
 	vars->adrr = mlx_get_data_addr(vars->img, &vars->bits_per_pixel,
 			&vars->line_lenght, &vars->endian);
+	vars->max_x = 2;
+	vars->min_x = -2;
+	vars->max_y = 2;
+	vars->min_y = -2;
 }
 
 void	assign_julia(t_vars *vars)

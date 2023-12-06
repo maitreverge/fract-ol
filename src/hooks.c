@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 14:05:45 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 17:35:17 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,12 @@ int	key_listener(int keycode, t_vars *vars)
 	if (keycode == ECHAP_KEY)
 		win_close(vars);
 	if (keycode == SPACE_KEY)
-		vars->original_zoom = 1.0;
+	{
+		vars->max_x = 2;
+		vars->min_x = -2;
+		vars->max_y = 2;
+		vars->min_y = -2;
+	}
 	fractal_definition(keycode, vars);
 	fractal_move(keycode, vars);
 	fractal_hotswap(keycode, vars);
@@ -66,12 +71,10 @@ int	key_listener(int keycode, t_vars *vars)
 
 int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
 {
-	x++;
-	y++;
 	if (mouseclick == SCROLL_DOWN)
-		vars->original_zoom *= 1.2;
+		mouse_zoom_out(x, y, vars);
 	else if (mouseclick == SCROLL_UP)
-		vars->original_zoom *= 0.8;
+		mouse_zoom_in(x, y, vars);
 	else if (mouseclick == RIGHT_CLICK)
 	{
 		vars->julia_set++;

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 14:23:20 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 17:34:44 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,10 @@ typedef struct s_vars
 	double		shift_x;
 	double		shift_y;
 	double		original_zoom;
+	double		max_x;
+	double		min_x;
+	double		max_y;
+	double		min_y;
 	void		*mlx;
 	void		*win;
 	void		*img;
@@ -122,10 +126,6 @@ typedef struct s_vars
 	int			bits_per_pixel;
 	int			line_lenght;
 	int			endian;
-	int			x; // ? useful
-	int			y; // ? useful
-	int			temp_x; // ? really useful
-	int			temp_y; // ? really useful
 	int			definition;
 }		t_vars;
 
@@ -135,27 +135,42 @@ typedef struct s_complex
 	double	y;
 }			t_complex;
 
-// fractol.c
-void		print_form(t_vars *vars, void *mlx, void *window, int color);
-void		my_mlx_pixel_put(t_vars *vars, int x, int y, int color);
-void		ft_init_mlx(t_vars *vars);
-void		print_fractal(t_vars *vars);
+// args_checker.c
+void		display_options(int num_err);
+int			first_arg(char *av1);
+int			second_arg_j(char **av);
+int			third_arg(int ac, char **av);
+int			arg_checker(int ac, char **av);
 
 // color.c
 void		ft_init_color_2(t_vars *vars);
 void		ft_init_color(t_vars *vars);
 void		fractal_colorswap(int keycode, t_vars *vars);
 void		fractal_colorshift_mouse(t_vars *vars);
-void		fractal_colorshift_space(t_vars *vars);
+
+// fractol.c
+void		print_fractal(t_vars *vars);
+void		ft_init_mlx(t_vars *vars);
+void		assign_julia(t_vars *vars);
+void		ft_init_args(t_vars *vars, char **av);
+
+// guides.c
+void		display_guide_1(t_vars *vars);
+void		display_guide_2(t_vars *vars);
 
 // hooks.c
-int			key_listener(int keycode, t_vars *vars);
-int			mouse_listener(int mouseclick, int x, int y, t_vars *vars);
-int			mouse_on_off(t_vars *vars);
-void		assign_julia(t_vars *vars);
 void		fractal_hotswap(int keycode, t_vars *vars);
 void		fractal_move(int keycode, t_vars *vars);
 void		fractal_definition(int keycode, t_vars *vars);
+int			key_listener(int keycode, t_vars *vars);
+int			mouse_listener(int mouseclick, int x, int y, t_vars *vars);
+
+// mandelbrot.c
+t_complex	sum_complex(t_complex z1, t_complex z2);
+t_complex	sqrt_complex(t_complex z);
+void		which_fractal(t_complex *z, t_complex *c, t_vars *vars);
+void		handle_pixels(int x, int y, t_vars *v);
+void		print_mandelbrot(t_vars *vars);
 
 // security.c
 int			win_checker(void);
@@ -164,27 +179,13 @@ void		failed_window(t_vars *vars);
 void		failed_image(t_vars *vars);
 void		malloc_error(void);
 
-// args_checker.c
-void		display_options(int num_err);
-int			first_arg(char *av1);
-int			second_arg_j(char **av);
-int			third_arg(int ac, char **av);
-int			arg_checker(int ac, char **av);
-
 // utils.c
 int			ft_strcmp(char *s1, char *s2);
-double		atodbl(char *str);
-
-// mandelbrot.c
-t_complex	sqrt_complex(t_complex z);
-t_complex	sum_complex(t_complex z1, t_complex z2);
+void		my_mlx_pixel_put(t_vars *vars, int x, int y, int color);
 double		map(double i, double new_min, double new_max, double old_max);
-void		handle_pixels(int x, int y, t_vars *v);
-void		print_mandelbrot(t_vars *vars);
-void		which_fractal(t_complex *z, t_complex *c, t_vars *vars);
 
-// guides.c
-void		display_guide_1(t_vars *vars);
-void		display_guide_2(t_vars *vars);
+// zoom.c
+int			mouse_zoom_in(int x, int y, t_vars *vars);
+int			mouse_zoom_out(int x, int y, t_vars *vars);
 
 #endif 
