@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 14:21:04 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 14:23:20 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 
 # define MALLOC_ERROR 1
 # define MLP mlx_string_put
+# define WIN_WIDTH 1500
+# define WIN_HEIGHT 1500
 
 typedef enum e_basic_colors
 {
@@ -61,8 +63,6 @@ typedef enum e_psy_colors
 // enum of mlk hooks events
 typedef enum e_event
 {
-	WIN_WIDTH = 1500,
-	WIN_HEIGHT = 1500,
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,

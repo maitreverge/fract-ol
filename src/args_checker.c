@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:37:12 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 13:26:54 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 14:28:44 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ void	display_options(int num_err)
 {
 	if (!num_err)
 	{
-		ft_printf("🚀 Fractol Usage 🚀\n------------\n");
-		ft_printf("1️⃣ st argument : <Select a Fractal : J for Julia");
+		ft_printf("🚀 Fractol Usage 🚀\n\n------------\n\n");
+		ft_printf("1st argument : <Select a Fractal : J for Julia");
 		ft_printf(", M for Mandelbrot, X for bonus>");
-		ft_printf("\n\n2️⃣ nd argument : If Julia set selected,");
+		ft_printf("\n\n2nd argument : If Julia set selected,");
 		ft_printf(" please choose which set <1 or 2 or 3>");
-		ft_printf("\n\n3️⃣ rd argument(Optional) : select ONE ");
+		ft_printf("\n\n3rd argument(Optional) : select ONE ");
 		ft_printf("global color theme between\n<R for 🟥");
 		ft_printf(", G for 🟩 , B for 🟦 , W for beautiful ");
 		ft_printf("colors🌈, L for psychedelics 😵‍💫 >");
@@ -35,8 +35,10 @@ void	display_options(int num_err)
 		ft_printf("\n⛔ Wrong Color set :\nPlease choose a global color");
 		ft_printf("<R, G, B, W, L>");
 	}
-	ft_printf("\n-------\nExamples :\n./a.out J 2 WOW\n");
-	ft_printf("./fractol M\n./fractol X L\n./fractol J 1\n");
+	ft_printf("\n\n\n-------\nExamples :\n./fractol J 2 W\n");
+	ft_printf("./fractol M\n./fractol M G\n./fractol J 1\n");
+	ft_printf("./fractol J 2 R\n./fractol J 3 W\n./fractol X R\n");
+	ft_printf("./fractol X\n./fractol X R\n./fractol X G\n");
 }
 
 int	first_arg(char *av1)
