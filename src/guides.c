@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:02:21 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 17:15:19 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:21:41 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	display_guide_1(t_vars *vars)
 {
-	mlx_string_put(vars->mlx, vars->win, 30, 25, BLACK, "--------------------");
-	mlx_string_put(vars->mlx, vars->win, 30, 105, BLACK, "--------------------");
+	mlx_string_put(vars->mlx, vars->win, 30, 25, BLACK, "------------------");
+	mlx_string_put(vars->mlx, vars->win, 30, 105, BLACK, "------------------");
 	for (int i = 28; i < 105; i+=9)
 		mlx_string_put(vars->mlx, vars->win, 25, i, BLACK, "|");
 	for (int i = 28; i < 105; i+=9)
@@ -27,8 +27,8 @@ void	display_guide_1(t_vars *vars)
 
 void	display_guide_2(t_vars *vars)
 {
-	mlx_string_put(vars->mlx, vars->win, 450, 25, BLACK, "--------------------");
-	mlx_string_put(vars->mlx, vars->win, 450, 130, BLACK, "--------------------");
+	mlx_string_put(vars->mlx, vars->win, 450, 25, BLACK, "------------------");
+	mlx_string_put(vars->mlx, vars->win, 450, 130, BLACK, "------------------");
 	for (int i = 28; i < 130; i+=9)
 		mlx_string_put(vars->mlx, vars->win, 448, i, BLACK, "|");
 	for (int i = 28; i < 130; i+=9)
@@ -38,5 +38,4 @@ void	display_guide_2(t_vars *vars)
 	mlx_string_put(vars->mlx, vars->win, 460, 75, RED, "<- : Move Right");
 	mlx_string_put(vars->mlx, vars->win, 460, 95, RED, "^  : Move Up");
 	mlx_string_put(vars->mlx, vars->win, 460, 115, RED, "v  : Move Down");
-	
 }

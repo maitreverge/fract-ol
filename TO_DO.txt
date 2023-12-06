@@ -1,15 +1,8 @@
-CONTROLS :
+Rename print_mandelbrot function
 
-- Implement better scroll (following mouse position)
+Work on better guides
 
-COLORS :
-- Implement selected colors (R, G, B, W, L)
-==> make subfunction for color_hot_swap
-==> Make subfunction for fractal_hot_swap
-==>						julia_hot_swap
-
-left click => Switch premade color_hotswap
-Space bars => color_shifting
+Reimplement numbers
 
 
 NEED FIXING =

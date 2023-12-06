@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:33:20 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 16:11:26 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:19:45 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,10 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-// ! not so useful ft, see if args are implemented later
-// double atodbl(char *str)
-// {
-// 	double result;
-// 	double pow;
+void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color)
+{
+	char	*dst;
 
-// 	result = 1;
-// 	pow = 1;
-// 	while (*str)
-// 	{
-// 		pow /= (10 + (*str - 48));
-// 		result = result + (*str - 48) * pow;
-// 		*str++;
-// 	}
-// 	return (result);
-// }
+	dst = vars->adrr + (y * vars->line_lenght + x * (vars->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
+}

@@ -6,45 +6,26 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 11:51:32 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:28:07 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-/*
-handeling pixels allows us to efficiently handle a "little" set of Mandelbrot, because
-it is located within a range of -2 / +2 on both reals numbers and imaginary numbers
-*/
-
-/*
-We aslo need to rescale the window according to the window size, otherwise, only a fraction
-of the Mandelbrot set wioll be visible (as the majority of the points leaves within the negative part)
-
-
-
-*/
-
-// ! Linear interpolation
-double map(double i, double new_min, double new_max, double old_max)
+double  map(double i, double new_min, double new_max, double old_max)
 {
     return ((new_max - new_min) * (i / old_max) + new_min); 
 }
 
-// sumcomplex, because c use current Z from the first itteration
-
-t_complex sum_complex(t_complex z1, t_complex z2)
+t_complex   sum_complex(t_complex z1, t_complex z2)
 {
     t_complex res;
-    
+
     res.x = z1.x + z2.x;
     res.y = z1.y + z2.y;
-
     return (res);
 }
 
-// (x_real + y_imaginary)^2
-// ==> x^2 + 2xyi - y^2
 t_complex   sqrt_complex(t_complex z)
 {
     // help :(
@@ -145,26 +126,3 @@ void    print_mandelbrot(t_vars *vars)
     mlx_put_image_to_window(vars->mlx, vars->win, vars->img, 0, 0);
 	
 }
-
-/*
-
-initialize MiniLibX library
-create a new window
-
-for each pixel in the window:
-    map the pixel to a corresponding point in the complex plane
-    set z = 0
-    set c = the point in the complex plane
-    set iteration = 0
-
-    while the absolute value of z is less than or equal to 2 and iteration is less than max_iteration:
-        set z = z^2 + c
-        increment iteration
-
-    set the color of the pixel based on the number of iterations
-
-redraw the image
-update the window
-
-
-*/

@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 12:10:52 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:16:11 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,9 +143,7 @@ void	print_fractal(t_vars *vars);
 
 
 // color.c
-int		atoi_color(char *str, int comas);
-int		fusion_4ints(int *c);
-int		get_color(char *str);
+static	void	ft_init_color_2(t_vars *vars);
 void	ft_init_color(t_vars *vars);
 void	fractal_colorswap(int keycode, t_vars *vars);
 void	fractal_colorshift_mouse(t_vars *vars);
