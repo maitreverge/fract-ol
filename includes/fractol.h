@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 11:53:01 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:10:52 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,17 @@
 # include <X11/keysym.h>
 
 # define MALLOC_ERROR 1
-// # define DEFINITION 42
 
 typedef enum e_basic_colors
 {
-    BLACK = 0x000000,
-    WHITE = 0xFFFFFF,
+	BLACK = 0x000000,
+	WHITE = 0xFFFFFF,
 	RED = 0xFF0000,
-    GREEN = 0x00FF00,
-    BLUE = 0x0000FF,
-    YELLOW = 0xFFFF00,
-    MAGENTA = 0xFF00FF,
-    CYAN = 0x00FFFF,
+	GREEN = 0x00FF00,
+	BLUE = 0x0000FF,
+	YELLOW = 0xFFFF00,
+	MAGENTA = 0xFF00FF,
+	CYAN = 0x00FFFF,
 	ORANGE = 0xFFA500
 }			t_basic_colors;
 
@@ -48,14 +47,14 @@ typedef enum e_psy_colors
 	MIN_GREEN = 0x006400,
 	MAX_GREEN = 0x00FF00,
 	PSY_PURPLE = 0xDF00FF,
-    PSY_COL_2 = 0x800080, // Purple
-    PSY_COL_3 = 0x00FF7F, // Spring Green
-    PSY_COL_5 = 0xFF1493, // Deep Pink
-    PSY_COL_6 = 0x8A2BE2, // Blue Violet
-    PSY_COL_7 = 0x00CED1, // Dark Turquoise
-    PSY_COL_8 = 0xFF6347, // Tomato
-    PSY_COL_9 = 0x7CFC00, // Lawn Green
-    PSY_COL_10 = 0x4682B4, // Steel Blue
+	PSY_COL_2 = 0x800080,
+	PSY_COL_3 = 0x00FF7F,
+	PSY_COL_5 = 0xFF1493,
+	PSY_COL_6 = 0x8A2BE2,
+	PSY_COL_7 = 0x00CED1,
+	PSY_COL_8 = 0xFF6347,
+	PSY_COL_9 = 0x7CFC00,
+	PSY_COL_10 = 0x4682B4
 }			t_psy_colors;
 
 // enum of mlk hooks events
@@ -85,7 +84,6 @@ typedef enum e_keys
 	MANDELBROT = 109,
 	JULIA = 106,
 	TRICORN = 120
-	// add keys de numeros
 }			t_keys;
 
 typedef enum e_mouse
@@ -99,45 +97,41 @@ typedef enum e_mouse
 
 typedef struct s_colors
 {
-	int col_min;
-	int col_max;
-	int col_fract;
+	int	col_min;
+	int	col_max;
+	int	col_fract;
 }			t_colors;
 
 typedef struct s_vars
 {
-	char	fractal_name;
-	char	julia_set;
-	double	julia_x;
-	double	julia_y;
-	char	color_arg;
-	void	*mlx;
-	void	*win;
-	// int		color; // ! to do : split into another struct
-	void	*img; // split into another struct
-	char	*adrr; // split into another struct
-	int		bits_per_pixel; // split into another struct
-	int		line_lenght; // split into another struct
-	int		endian; // split into another struct
-	int		x; // position for tracking the mouse
-	int		y; // position for tracking the mouse
-	int		temp_x; // ? really useful
-	int		temp_y; // ? really useful
-	double	pyth_escaped; // checked value for escaped possibilities
-	int		definition;// make definition change for plus and minus key
-	double shift_x; // valeurs qui bougent les fleches
-	double shift_y; // valeurs qui bougent les fleches
-	double	original_zoom;
-	// double	tracked_zoom;
-	t_colors colors;
+	t_colors	colors;
+	double		julia_x;
+	double		julia_y;
+	double		pyth_escaped;
+	double		shift_x;
+	double		shift_y;
+	double		original_zoom;
+	void		*mlx;
+	void		*win;
+	void		*img;
+	char		fractal_name;
+	char		julia_set;
+	char		color_arg;
+	char		*adrr;
+	int			bits_per_pixel;
+	int			line_lenght;
+	int			endian;
+	int			x; // ? useful
+	int			y; // ? useful
+	int			temp_x; // ? really useful
+	int			temp_y; // ? really useful
+	int			definition;
 }		t_vars;
 
 typedef struct s_complex
 {
-	// real number
-    double	x;
-	// imaginary number
-    double	y;
+	double	x;
+	double	y;
 }			t_complex;
 
 
@@ -162,12 +156,12 @@ void	fractal_colorshift_space(t_vars *vars);
 
 // hooks.c
 int		key_listener(int keycode, t_vars *vars);
-int		mouse_listener(int mouseclick, t_vars *vars);
+int		mouse_listener(int mouseclick, int x, int y, t_vars *vars);
 int		mouse_on_off(t_vars *vars);
-void assign_julia(t_vars *vars);
-void    fractal_hotswap(int keycode, t_vars *vars);
-void    fractal_move(int keycode, t_vars *vars);
-void    fractal_definition(int keycode, t_vars *vars);
+void	assign_julia(t_vars *vars);
+void	fractal_hotswap(int keycode, t_vars *vars);
+void	fractal_move(int keycode, t_vars *vars);
+void	fractal_definition(int keycode, t_vars *vars);
 
 
 
@@ -194,17 +188,15 @@ double	atodbl(char *str);
 
 
 // mandelbrot.c
-double map(double i, double new_min, double new_max, double old_max);
-t_complex sum_complex(t_complex z1, t_complex z2);
-t_complex   sqrt_complex(t_complex z);
-void    handle_pixels(int x, int y, t_vars *vars);
+double	map(double i, double new_min, double new_max, double old_max);
+void	handle_pixels(int x, int y, t_vars *vars);
 void	print_mandelbrot(t_vars *vars);
-void    which_fractal(t_complex *z, t_complex *c, t_vars *vars);
+void	which_fractal(t_complex *z, t_complex *c, t_vars *vars);
+t_complex	sqrt_complex(t_complex z);
+t_complex	sum_complex(t_complex z1, t_complex z2);
 
 // guides.c
 void	display_guide_1(t_vars *vars);
 void	display_guide_2(t_vars *vars);
-
-
 
 #endif 
