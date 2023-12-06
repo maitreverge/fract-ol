@@ -6,12 +6,11 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 12:26:14 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:55:38 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
 
 void	fractal_hotswap(int keycode, t_vars *vars)
 {
@@ -83,4 +82,3 @@ int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
 	print_fractal(vars);
 	return (0);
 }
-

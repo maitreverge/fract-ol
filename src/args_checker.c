@@ -6,12 +6,11 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:37:12 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 12:12:14 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:55:13 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
 
 void	display_options(int num_err)
 {
