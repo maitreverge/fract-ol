@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 12:44:14 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:47:33 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	handle_pixels(int x, int y, t_vars *v)
 {
 	t_complex	z;
 	t_complex	c;
-	t_complex	tri_z;
 	int			i;
 	int			color;
 
@@ -59,11 +58,7 @@ void	handle_pixels(int x, int y, t_vars *v)
 	while (i < v->definition)
 	{
 		if (v->fractal_name == 'X')
-		{
-			tri_z.x = z.x;
-			tri_z.y = -z.y;
-			z = sum_complex(sqrt_complex(tri_z), c);
-		}
+			z = sum_complex(sqrt_complex((t_complex){z.x, -z.y}), c);
 		else
 			z = sum_complex(sqrt_complex(z), c);
 		if ((pow(z.x, 2) + pow(z.y, 2)) > v->pyth_escaped)
