@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 12:21:13 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:52:01 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	main(int ac, char **av)
 		ft_init_mlx(&vars);
 		ft_init_args(&vars, av);
 		print_fractal(&vars);
-		mlx_hook(vars.win, DestroyNotify, StructureNotifyMask, &win_close, &vars); // remplace keywords
+		mlx_hook(vars.win, X_CROSS, 1L << 0, &win_close, &vars);
 		mlx_hook(vars.win, ButtonPress, ButtonPressMask, mouse_listener, &vars);
 		mlx_key_hook(vars.win, key_listener, &vars);
 		mlx_loop(vars.mlx);
