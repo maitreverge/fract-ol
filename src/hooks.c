@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 12:55:38 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 14:05:45 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	key_listener(int keycode, t_vars *vars)
 		vars->definition = 1;
 	if (keycode == ECHAP_KEY)
 		win_close(vars);
+	if (keycode == SPACE_KEY)
+		vars->original_zoom = 1.0;
 	fractal_definition(keycode, vars);
 	fractal_move(keycode, vars);
 	fractal_hotswap(keycode, vars);
