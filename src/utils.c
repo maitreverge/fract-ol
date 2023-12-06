@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 13:33:20 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 12:19:45 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:34:23 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ void	my_mlx_pixel_put(t_vars *vars, int x, int y, int color)
 
 	dst = vars->adrr + (y * vars->line_lenght + x * (vars->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
+}
+
+double	map(double i, double new_min, double new_max, double old_max)
+{
+	return ((new_max - new_min) * (i / old_max) + new_min);
 }

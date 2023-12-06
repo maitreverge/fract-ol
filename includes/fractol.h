@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 12:16:11 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:44:40 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ void	print_fractal(t_vars *vars);
 
 
 // color.c
-static	void	ft_init_color_2(t_vars *vars);
+void	ft_init_color_2(t_vars *vars);
 void	ft_init_color(t_vars *vars);
 void	fractal_colorswap(int keycode, t_vars *vars);
 void	fractal_colorshift_mouse(t_vars *vars);
@@ -187,7 +187,7 @@ double	atodbl(char *str);
 
 // mandelbrot.c
 double	map(double i, double new_min, double new_max, double old_max);
-void	handle_pixels(int x, int y, t_vars *vars);
+void	handle_pixels(int x, int y, t_vars *v);
 void	print_mandelbrot(t_vars *vars);
 void	which_fractal(t_complex *z, t_complex *c, t_vars *vars);
 t_complex	sqrt_complex(t_complex z);

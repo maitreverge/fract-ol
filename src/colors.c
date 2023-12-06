@@ -6,13 +6,13 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:19:13 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 12:15:37 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 12:43:32 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-static void	ft_init_color_2(t_vars *vars)
+void	ft_init_color_2(t_vars *vars)
 {
 	if (vars->color_arg == 'B')
 	{
