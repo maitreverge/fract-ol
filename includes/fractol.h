@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 11:11:00 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:28:54 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef enum e_keys
 	DOWN_KEY = 65364,
 	LEFT_KEY = 65361,
 	RIGHT_KEY = 65363,
+	SPACE_KEY = 32,
 	MANDELBROT = 109,
 	JULIA = 106,
 	TRICORN = 120
@@ -153,6 +154,9 @@ int		fusion_4ints(int *c);
 int		get_color(char *str);
 void	ft_init_color(t_vars *vars);
 void	fractal_colorswap(int keycode, t_vars *vars);
+void	fractal_colorshift_mouse(t_vars *vars);
+void	fractal_colorshift_space(t_vars *vars);
+
 
 
 
@@ -161,6 +165,12 @@ int		key_listener(int keycode, t_vars *vars);
 int		mouse_listener(int mouseclick, int x, int y, t_vars *vars);
 int		mouse_on_off(t_vars *vars);
 void assign_julia(t_vars *vars);
+void    fractal_hotswap(int keycode, t_vars *vars);
+void    fractal_move(int keycode, t_vars *vars);
+void    fractal_definition(int keycode, t_vars *vars);
+
+
+
 
 
 // security.c

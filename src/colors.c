@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:19:13 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 11:14:37 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:30:34 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,39 @@ void	fractal_colorswap(int keycode, t_vars *vars)
 		vars->color_arg = 'L';
 	ft_init_color(vars);
 }
+
+void	fractal_colorshift_mouse(t_vars *vars)
+{
+	if (vars->colors.col_min == WHITE) // min
+		vars->colors.col_min -= 42;
+	else
+		vars->colors.col_min += 42;
+	if (vars->colors.col_max == WHITE) // max
+		vars->colors.col_max -= 42;
+	else
+		vars->colors.col_max += 42;
+	if (vars->colors.col_fract == WHITE) // fract
+		vars->colors.col_fract -= 42;
+	else
+		vars->colors.col_fract += 42;
+}
+
+void	fractal_colorshift_space(t_vars *vars)
+{
+	if (vars->colors.col_min == WHITE) // min
+		vars->colors.col_min -= 21;
+	else
+		vars->colors.col_min += 21;
+	if (vars->colors.col_max == WHITE) // max
+		vars->colors.col_max -= 21;
+	else
+		vars->colors.col_max += 21;
+	if (vars->colors.col_fract == WHITE) // fract
+		vars->colors.col_fract -= 21;
+	else
+		vars->colors.col_fract += 21;
+}
+
+
 
 
