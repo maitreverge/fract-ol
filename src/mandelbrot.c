@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 11:49:57 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 18:02:29 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:08:28 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,22 +121,20 @@ void    handle_pixels(int x, int y, t_vars *vars)
     // if hypothenuse > 2, let's assume I has escaped
     if ((pow(z.x, 2) + pow(z.y, 2)) > vars->pyth_escaped)
     {
-        color = map(i, BLACK, BLACK, vars->definition);
+        color = map(i, vars->colors.col_min, vars->colors.col_max, vars->definition);
         my_mlx_pixel_put(vars, x, y, color); // orange
         return;
     }
     ++i;
-    my_mlx_pixel_put(vars, x, y, WHITE); // spring green
+    my_mlx_pixel_put(vars, x, y, vars->colors.col_fract); // spring green
    }
 } 
 
 void    print_mandelbrot(t_vars *vars)
 {
-	// av[2] = COLOR R / G / B / WOW / LSD
-    // ft_printf("MANDELBROT PRINTING");
     int x;
     int y;
-    
+
     y = -1;
     while (++y < WIN_HEIGHT)
     {

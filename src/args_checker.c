@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:37:12 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 13:21:21 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 10:42:34 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	display_options(int num_err)
 		ft_printf(" please choose which set <1 or 2 or 3>");
 		ft_printf("\n\n3️⃣ rd argument(Optional) : select ONE ");
 		ft_printf("global color theme between\n<R for 🟥");
-		ft_printf(", G for 🟩 , B for 🟦 , WOW for beautiful ");
-		ft_printf("colors🌈, LSD for psychedelics 😵‍💫 >");
+		ft_printf(", G for 🟩 , B for 🟦 , W for beautiful ");
+		ft_printf("colors🌈, L for psychedelics 😵‍💫 >");
 	}
 	else if (num_err == 1)
 		ft_printf("⛔ Wrong Fractal choosen\nPlease choose <M or J or X>");
@@ -33,10 +33,10 @@ void	display_options(int num_err)
 	else if (num_err == 3)
 	{
 		ft_printf("\n⛔ Wrong Color set :\nPlease choose a global color");
-		ft_printf("<R, G, B, WOW, LSD>");
+		ft_printf("<R, G, B, W, L>");
 	}
 	ft_printf("\n-------\nExamples :\n./a.out J 2 WOW\n");
-	ft_printf("./a.out M\n./a.out X LSD\n./a.out J 1\n");
+	ft_printf("./fractol M\n./fractol X L\n./fractol J 1\n");
 }
 
 int	first_arg(char *av1)
@@ -64,15 +64,15 @@ int	third_arg(int ac, char **av)
 	if (ft_strcmp(av[1], "J") && ac == 3)
 	{
 		if (ft_strcmp(av[2], "R") && ft_strcmp(av[2], "G")
-			&& ft_strcmp(av[2], "B") && ft_strcmp(av[2], "WOW")
-			&& ft_strcmp(av[2], "LSD"))
+			&& ft_strcmp(av[2], "B") && ft_strcmp(av[2], "W")
+			&& ft_strcmp(av[2], "L"))
 			return (1);
 	}
 	if (!ft_strcmp(av[1], "J") && ac == 4)
 	{
 		if (ft_strcmp(av[3], "R") && ft_strcmp(av[3], "G")
-			&& ft_strcmp(av[3], "B") && ft_strcmp(av[3], "WOW")
-			&& ft_strcmp(av[3], "LSD"))
+			&& ft_strcmp(av[3], "B") && ft_strcmp(av[3], "W")
+			&& ft_strcmp(av[3], "L"))
 			return (1);
 	}
 	return (0);

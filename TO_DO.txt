@@ -28,3 +28,5 @@ Fine tuning Julia set, why not implementing args values
 Add full GCC flags to avoid unsused variable for valgrind
 
 Add reset zoom = 0 number;
+
+shift colors function = -10 if black, +10 if not

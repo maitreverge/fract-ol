@@ -6,11 +6,37 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 17:59:21 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:13:27 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+void    fractal_hotswap(int keycode, t_vars *vars)
+{
+    if (keycode == MANDELBROT)
+        vars->fractal_name = 'M';
+	else if (keycode == JULIA)
+    {
+        vars->fractal_name = 'J';
+        vars->julia_set = '1';
+        assign_julia(vars);   
+    }
+	else if (keycode == TRICORN)
+        vars->fractal_name = 'X';
+}
+
+void    fractal_move(int keycode, t_vars *vars)
+{
+    if (keycode == UP_KEY)
+		vars->shift_y += (0.5 * vars->original_zoom);	
+	else if (keycode == DOWN_KEY)
+		vars->shift_y -= (0.5 * vars->original_zoom);	
+	else if (keycode == LEFT_KEY)
+		vars->shift_x += (0.5 * vars->original_zoom);
+	else if (keycode == RIGHT_KEY)
+		vars->shift_x -= (0.5 * vars->original_zoom);
+}
 
 int	key_listener(int keycode, t_vars *vars)
 {
@@ -22,28 +48,13 @@ int	key_listener(int keycode, t_vars *vars)
 		vars->definition += 3;
 	else if (keycode == MINUS_KEY)
 		vars->definition -= 3;
-	else if (keycode == UP_KEY)
-		vars->shift_y += (0.5 * vars->original_zoom);	
-	else if (keycode == DOWN_KEY)
-		vars->shift_y -= (0.5 * vars->original_zoom);	
-	else if (keycode == LEFT_KEY)
-		vars->shift_x += (0.5 * vars->original_zoom);
-	else if (keycode == RIGHT_KEY)
-		vars->shift_x -= (0.5 * vars->original_zoom);
-	else if (keycode == MANDELBROT)
-        vars->fractal_name = 'M';
-	else if (keycode == JULIA)
-    {
-        vars->fractal_name = 'J';
-        vars->julia_set = '1';
-        assign_julia(vars);   
-    }
-	else if (keycode == TRICORN)
-        vars->fractal_name = 'X';
+    fractal_move(keycode, vars);
+	fractal_hotswap(keycode, vars);
+    fractal_colorswap(keycode, vars);
     if (vars->definition <= 0)
 		vars->definition = 1;
 	print_fractal(vars);  
-    // ft_printf("Pressed key = %d\n", keycode);
+    // ft_printf("Actual key = %d\n", keycode);
 }
 
 // ! classic mouse zooming
@@ -60,7 +71,6 @@ int	mouse_listener(int mouseclick, int x, int y, t_vars *vars)
             vars->julia_set = '1';
         assign_julia(vars);
     }
-    // ft_printf("Actual key = %d\n", mouseclick);
     
     print_fractal(vars);
     return (0);

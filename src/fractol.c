@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 17:05:53 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 10:50:33 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,12 @@ void	ft_init_args(t_vars *vars, char **av)
 		vars->color_arg = av[2][0];
 	else if (vars->fractal_name == 'J' && av[3])
 		vars->color_arg = av[3][0];
+	else
+		vars->color_arg = '0';
 	vars->shift_x = 0.0;
 	vars->shift_y = 0.0;
 	vars->original_zoom = 1.0;
+	ft_init_color(vars);
 	
 }
 

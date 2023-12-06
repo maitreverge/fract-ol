@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:19:13 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/02 16:28:28 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:14:37 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,3 +67,62 @@ int	get_color(char *str)
 	free(colors);
 	return (result);
 }
+
+void	ft_init_color(t_vars *vars)
+{
+	if (vars->color_arg == '0')
+	{
+		vars->colors.col_min = BLACK;
+		vars->colors.col_max = BLACK;
+		vars->colors.col_fract = WHITE;
+	}
+	else if (vars->color_arg == 'R')
+	{
+		vars->colors.col_min = PSY_COL_8;
+		vars->colors.col_max = RED;
+		vars->colors.col_fract = ORANGE;
+	}
+	else if (vars->color_arg == 'G')
+	{
+		vars->colors.col_min = MIN_GREEN;
+		vars->colors.col_max = MAX_GREEN;
+		vars->colors.col_fract = PSY_COL_9;
+	}
+	else if (vars->color_arg == 'B')
+	{
+		vars->colors.col_min = PSY_COL_6;
+		vars->colors.col_max = BLUE;
+		vars->colors.col_fract = CYAN;
+	}
+	else if (vars->color_arg == 'W')
+	{
+		vars->colors.col_min = BLACK;
+		vars->colors.col_max = WHITE;
+		vars->colors.col_fract = MAGENTA;
+	}
+	else if (vars->color_arg == 'L')
+	{
+		vars->colors.col_min = PSY_COL_3;
+		vars->colors.col_max = PSY_COL_5;
+		vars->colors.col_fract = PSY_COL_10;
+	}
+}
+
+void	fractal_colorswap(int keycode, t_vars *vars)
+{
+	if (keycode == 49) // 0
+		vars->color_arg = '0';
+	else if (keycode == 50) // R
+		vars->color_arg = 'R';
+	else if (keycode == 51) // G
+		vars->color_arg = 'G';
+	else if (keycode == 52) // B
+		vars->color_arg = 'B';
+	else if (keycode == 53) // W
+		vars->color_arg = 'W';
+	else if (keycode == 54) // L
+		vars->color_arg = 'L';
+	ft_init_color(vars);
+}
+
+

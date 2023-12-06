@@ -6,7 +6,7 @@
 /*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/05 17:49:32 by flverge          ###   ########.fr       */
+/*   Updated: 2023/12/06 11:11:00 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,13 @@ typedef enum e_mouse
 	SCROLL_DOWN
 }			t_mouse;
 
+typedef struct s_colors
+{
+	int col_min;
+	int col_max;
+	int col_fract;
+}			t_colors;
+
 typedef struct s_vars
 {
 	char	fractal_name;
@@ -105,7 +112,7 @@ typedef struct s_vars
 	char	color_arg;
 	void	*mlx;
 	void	*win;
-	int		color; // ! to do : split into another struct
+	// int		color; // ! to do : split into another struct
 	void	*img; // split into another struct
 	char	*adrr; // split into another struct
 	int		bits_per_pixel; // split into another struct
@@ -121,6 +128,7 @@ typedef struct s_vars
 	double shift_y; // valeurs qui bougent les fleches
 	double	original_zoom;
 	// double	tracked_zoom;
+	t_colors colors;
 }		t_vars;
 
 typedef struct s_complex
@@ -143,6 +151,10 @@ void	print_fractal(t_vars *vars);
 int		atoi_color(char *str, int comas);
 int		fusion_4ints(int *c);
 int		get_color(char *str);
+void	ft_init_color(t_vars *vars);
+void	fractal_colorswap(int keycode, t_vars *vars);
+
+
 
 // hooks.c
 int		key_listener(int keycode, t_vars *vars);
