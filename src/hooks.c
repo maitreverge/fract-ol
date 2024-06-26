@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 17:35:17 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/26 10:17:06 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ void	fractal_definition(int keycode, t_vars *vars)
 		vars->definition -= 3;
 }
 
+void	fractal_rotate(int keycode, t_vars *vars)
+{
+	if (keycode = XK_r && vars->fractal_name == 'J')
+	{
+		// rotate the suff
+	}
+}
+
 int	key_listener(int keycode, t_vars *vars)
 {
 	if (vars->definition <= 0)
@@ -63,6 +71,10 @@ int	key_listener(int keycode, t_vars *vars)
 	fractal_move(keycode, vars);
 	fractal_hotswap(keycode, vars);
 	fractal_colorswap(keycode, vars);
+	
+	// new stuff for rotating fractal julia for a couple of spins
+	fractal_rotate(keycode, vars);
+	
 	if (vars->definition <= 0)
 		vars->definition = 1;
 	print_fractal(vars);
