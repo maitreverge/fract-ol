@@ -6,7 +6,7 @@
 #    By: flverge <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 09:04:59 by flverge           #+#    #+#              #
-#    Updated: 2023/12/06 11:56:55 by flverge          ###   ########.fr        #
+#    Updated: 2024/06/26 10:04:36 by flverge          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fractol
 
 # Compiler options
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -O3
 
 # libft
 LIBFT_NAME = libmaster.a
