@@ -6,7 +6,7 @@
 /*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 14:52:35 by flverge           #+#    #+#             */
-/*   Updated: 2024/06/26 10:17:06 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/27 11:53:43 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,20 @@ void	fractal_definition(int keycode, t_vars *vars)
 
 void	fractal_rotate(int keycode, t_vars *vars)
 {
-	if (keycode = XK_r && vars->fractal_name == 'J')
+	bool rotatePositiveX, rotatePositiveY;
+	if (keycode == XK_r && vars->fractal_name == 'J')
 	{
-		// rotate the suff
+		int totalFrames = 150;
+		float steps = 0.0010;
+		for (int i = 0; i < totalFrames; i++)
+		{
+			rotatePositiveX = (vars->julia_x >= 2) ? true : false;
+			rotatePositiveY = (vars->julia_y >= 2) ? false : true;
+
+			vars->julia_x += rotatePositiveX ? steps : -steps;
+			vars->julia_y += rotatePositiveY ? steps : -steps;
+			print_fractal(vars);
+		}
 	}
 }
 

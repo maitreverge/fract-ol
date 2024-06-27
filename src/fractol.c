@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:05:11 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 17:16:21 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/27 11:52:36 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_init_mlx(t_vars *vars)
 		exit(1);
 	}
 	vars->pyth_escaped = 4;
-	vars->definition = 4;
+	vars->definition = 30; // minimum definition here at start
 	if (vars->definition <= 0)
 		vars->definition = 1;
 	vars->mlx = mlx_init();

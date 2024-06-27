@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flverge <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: flverge <flverge@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:00:32 by flverge           #+#    #+#             */
-/*   Updated: 2023/12/06 17:34:44 by flverge          ###   ########.fr       */
+/*   Updated: 2024/06/27 11:38:57 by flverge          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <string.h> // strerror
 # include <X11/X.h>
 # include <X11/keysym.h>
+# include <stdbool.h>
 
 # define MALLOC_ERROR 1
 # define MLP mlx_string_put
