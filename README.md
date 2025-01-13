@@ -39,4 +39,4 @@ make
 Unfinished project, soon.
 
 ## 🤝 CONTRIBUTION
-Contributions are open ! Make a pull request or open an issue, I'd be happy to contribute !
+Contributions are open, open a Github Issue or submit a PR 🚀
