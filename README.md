@@ -41,5 +41,28 @@ When you launch first the `fractol` binary, you'll have a guide on how to use th
   <img src="img/fc1.png" width="70%"/>
 </p>
 
+
+
+## 🎛️ CONTROLS
+
+#### KEYBOARD
+- `M` key : Hot-swap for MandelBrot
+- `J` key : Hot-swap for Julia
+- `X` key : Hot-swap for Unicorn
+- `1` : Color hot-swap : Black&White 
+- `2` : Color hot-swap : Red
+- `3` : Color hot-swap : Green
+- `4` : Color hot-swap : Blue
+- `5` : Color hot-swap : WOW
+- `6` : Color hot-swap : LSD
+- `` : 
+- `` : 
+- `` : 
+- `` : 
+- `` : 
+#### MOUSE
+
+
+
 ## 🤝 CONTRIBUTION
 Contributions are open, open a Github Issue or submit a PR 🚀
