@@ -30,13 +30,16 @@ make
 ```
 
 > [!WARNING]
-> This project aims to be executed
-
+> This project aims to be executed in a x86 Linux environment, with a QWERTY keyboard.
 
 
 ## ⚙️ USAGE
 
-Unfinished project, soon.
+When you launch first the `fractol` binary, you'll have a guide on how to use the binary :
+
+<p align="center">
+  <img src="img/fc1.png" width="70%"/>
+</p>
 
 ## 🤝 CONTRIBUTION
 Contributions are open, open a Github Issue or submit a PR 🚀
