@@ -41,8 +41,6 @@ When you launch first the `fractol` binary, you'll have a guide on how to use th
   <img src="img/fc1.png" width="70%"/>
 </p>
 
-
-
 ## 🎛️ CONTROLS
 
 #### KEYBOARD
@@ -58,6 +56,7 @@ When you launch first the `fractol` binary, you'll have a guide on how to use th
 - `+` key : More definition (slows down the zoom rendering) 
 - `-` key : Less definition
 - Arrow key : Moves the fractal in 4 axis.
+- `SPACE` key : Reset the zoom.
 
 #### MOUSE
 - RIGHT CLICK : Light color shift
@@ -65,8 +64,31 @@ When you launch first the `fractol` binary, you'll have a guide on how to use th
 - SCROLL UP : Zoom in.
 - SCROLL DOWN : Zoom out.
 
+## 🖼️ ILLUTRATIONS :
 
+<p align="center">
+  <img src="img/fc2.png" width="70%"/>
+</p>
 
+<p align="center">
+  <img src="img/fc3.png" width="70%"/>
+</p>
+
+<p align="center">
+  <img src="img/fc4.png" width="70%"/>
+</p>
+
+<p align="center">
+  <img src="img/fc5.png" width="70%"/>
+</p>
+
+<p align="center">
+  <img src="img/fc6.png" width="70%"/>
+</p>
+
+<p align="center">
+  <img src="img/fc7.png" width="70%"/>
+</p>
 
 ## 🤝 CONTRIBUTION
 Contributions are open, open a Github Issue or submit a PR 🚀
