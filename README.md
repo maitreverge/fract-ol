@@ -49,18 +49,22 @@ When you launch first the `fractol` binary, you'll have a guide on how to use th
 - `M` key : Hot-swap for MandelBrot
 - `J` key : Hot-swap for Julia
 - `X` key : Hot-swap for Unicorn
-- `1` : Color hot-swap : Black&White 
-- `2` : Color hot-swap : Red
-- `3` : Color hot-swap : Green
-- `4` : Color hot-swap : Blue
-- `5` : Color hot-swap : WOW
-- `6` : Color hot-swap : LSD
-- `` : 
-- `` : 
-- `` : 
-- `` : 
-- `` : 
+- `1` key : Color hot-swap : Black&White 
+- `2` key : Color hot-swap : Red
+- `3` key : Color hot-swap : Green
+- `4` key : Color hot-swap : Blue
+- `5` key : Color hot-swap : WOW
+- `6` key : Color hot-swap : LSD
+- `+` key : More definition (slows down the zoom rendering) 
+- `-` key : Less definition
+- Arrow key : Moves the fractal in 4 axis.
+
 #### MOUSE
+- RIGHT CLICK : Light color shift
+- LEFT CLICK : Swap Julia sets (works only when Julia is already displayed).
+- SCROLL UP : Zoom in.
+- SCROLL DOWN : Zoom out.
+
 
 
 
